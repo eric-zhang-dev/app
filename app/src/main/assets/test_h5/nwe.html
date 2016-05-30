@@ -2,13 +2,13 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
 		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
 		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
 		<title>测试</title>
 		<style type="text/css">
-			#plan1{
+			#plan1 {
 				position: relative;
 				width: 100px;
 				height: 100px;
@@ -20,7 +20,7 @@
 	</head>
 
 	<body>
-		
+
 		<div id="plan1"></div>
 		<div>
 			<h1 id="my_h1">hello</h1>
@@ -48,7 +48,32 @@
 		<input type="radio" value="radio1" />单选1
 		<input type="radio" value="radio2" />单选2
 		<input type="radio" value="radio3" />单选3
+		
 		<script type="text/javascript">
+			$(function() {
+				var i = getParam("machineCode");
+				var j = getParam("a");
+				alert(i+"a="+j);
+			});
+			//			var machineCode = "<%= machineCode %>";
+//			var getParam = function(name) {
+//				var search = document.location.search;
+//				var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+//				var matcher = pattern.exec(search);
+//				var items = null;
+//				if (null != matcher) {
+//					try {
+//						items = decodeURIComponent(decodeURIComponent(matcher[1]));
+//					} catch (e) {
+//						try {
+//							items = decodeURIComponent(matcher[1]);
+//						} catch (e) {
+//							items = matcher[1];
+//						}
+//					}
+//				}
+//				return items;
+//			};
 			$("#single").val("选择2号");
 			$(".address").focus(function() {
 				var tv_value = $(this).val();
@@ -64,25 +89,36 @@
 			});
 			$('#my_h1').bind("click", function() {
 				$(this).next().toggle();
-//				if ($(this).next().is(":visible")) {
-//					$(this).next().slideUp();
-//				} else {
-//					$(this).next().slideDown();
-//				}
+				//				if ($(this).next().is(":visible")) {
+				//					$(this).next().slideUp();
+				//				} else {
+				//					$(this).next().slideDown();
+				//				}
 			});
-			$(function(){
-				$('#plan1').click(function(){
-					$(this).animate({left:"500px",height:"200px",width:"200px"},30,function(){
-						$(this).css("border","5px solid red");
+			$(function() {
+				$('#plan1').click(function() {
+					$(this).animate({
+						left: "500px",
+						height: "200px",
+						width: "200px"
+					}, 30, function() {
+						$(this).css("border", "5px solid red");
 					});
 				});
 			});
-			$('#plan1').hover(function(){
-				$(this).stop().animate({height:"200px",width:"200px"},200);
-			},function(){
-				$(this).stop().animate({height:"22px",width:"60px"},200);
+			$('#plan1').hover(function() {
+				$(this).stop().animate({
+					height: "200px",
+					width: "200px"
+				}, 200);
+			}, function() {
+				$(this).stop().animate({
+					height: "22px",
+					width: "60px"
+				}, 200);
 			});
 		</script>
+		<script type="text/javascript" src="../www/js/params.js" ></script>
 	</body>
 
 </html>

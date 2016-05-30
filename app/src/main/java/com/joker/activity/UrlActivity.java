@@ -32,8 +32,7 @@ public class UrlActivity extends AppCompatActivity {
     private void initView() {
         con =  getIntent().getStringExtra("content");
         webView = (WebView) findViewById(R.id.my_web);
-        hot();
-        webView.loadUrl(Html5.NEW);
+        webView.loadUrl(Html5.SEARCH_NEWS+"?type=0");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAllowFileAccessFromFileURLs(true);
@@ -57,7 +56,8 @@ public class UrlActivity extends AppCompatActivity {
     public void detial(String url) {
         startActivity(new Intent(UrlActivity.this, DActivity.class).putExtra("url", url));
     }
-    private void hot() {
+    @JavascriptInterface
+    public void hot() {
         httpUrl = "http://op.juhe.cn/onebox/news/query?key=a847c7e85ab750d5487a7426087cac10&q="+con;
         new Thread(load).start();
     }

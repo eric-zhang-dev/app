@@ -20,5 +20,5 @@ public class Html5 {
     public static String FORTUNE = "file:///android_asset/www/fortune.html";
     public static String NEWS = "file:///android_asset/www/news.html";
     public static String SEARCH_NEWS = "file:///android_asset/www/search_news.html";
-    public static String NEW = "file:///android_asset/www/new.html";
+    public static String TIC_NUM_HTML = "file:///android_asset/www/tic_num.html";
 }

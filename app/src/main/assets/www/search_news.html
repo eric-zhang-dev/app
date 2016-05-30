@@ -45,6 +45,12 @@
 				/*width: 50%;
 				height: 50%;*/
 			}
+			
+			#new_input,
+			#my_btn {
+				margin: 10px;
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -55,7 +61,17 @@
 		</ul>
 	</body>
 	<script type="text/javascript">
+		var type = 0;
 		$(function() {
+			type = getParam("type")==null?0:getParam("type");
+			if (type == 0) {
+				$("#new_input").hide();
+				$("#my_btn").hide();
+				window.Android.hot();
+			} else {
+				$("#new_input").show();
+				$("#my_btn").show();
+			}
 			$('#my_btn').click(function() {
 				var ipt = $('#new_input').val().trim();
 				if (ipt.length != 0) {
@@ -80,5 +96,6 @@
 			window.Android.detial(url);
 		}
 	</script>
+	<script type="text/javascript" src="js/params.js"></script>
 
 </html>

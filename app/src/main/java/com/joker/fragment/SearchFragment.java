@@ -39,7 +39,7 @@ public class SearchFragment extends Fragment {
     @JavascriptInterface
     private void initView() {
         webView = (WebView) view.findViewById(R.id.my_web);
-        webView.loadUrl(Html5.SEARCH_NEWS);
+        webView.loadUrl(Html5.SEARCH_NEWS+"?type=1");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAllowFileAccessFromFileURLs(true);

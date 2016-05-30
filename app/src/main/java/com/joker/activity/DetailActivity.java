@@ -50,7 +50,8 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(new Intent(DetailActivity.this,JokerActivity.class));
                 break;
             case "火车时刻表":
-                url = Html5.TIC_HTML;
+//                url = Html5.TIC_HTML;
+                startActivity(new Intent(DetailActivity.this,TrainActivity.class));
                 break;
             case "公交线路":
                 url = Html5.P_BUS_HTML;

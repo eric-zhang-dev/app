@@ -25,6 +25,9 @@
             android:name=".activity.JokerActivity"
             android:theme="@style/Theme.PageIndicatorDefaults"></activity>
         <activity
+            android:name=".activity.TrainActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults"></activity>
+        <activity
             android:name=".activity.ChatActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"></activity>
     </application>
