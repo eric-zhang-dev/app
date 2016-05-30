@@ -1,0 +1,1150 @@
+﻿/***********************************************************************************/
+/* 列表右边值样式                                                                  */
+/***********************************************************************************/
+.zd-ui-li-value {
+    -webkit-border-radius: .3125em;
+    -moz-border-radius: .3125em;
+    border-radius: .3125em;
+}
+
+.ui-select .ui-btn-icon-right .zd-ui-li-value {
+    right: 2em;
+}
+
+.ui-select .ui-btn > span:not(.zd-ui-li-value) {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden !important;
+    white-space: nowrap;
+}
+
+.zd-ui-li-value {
+    position: absolute;
+    font-size: 12.5px;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 0 .48em;
+    line-height: 1.6em;
+    min-height: 1.6em;
+    min-width: .64em;
+    right: .8em;
+    top: 50%;
+    margin-top: -.88em;
+    width: 150px;
+    text-align: right;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ui-listview .ui-btn-icon-right .zd-ui-li-value {
+    right: 2em;
+}
+
+
+/***********************************************************************************/
+/* 头像列表样式                                                                    */
+/***********************************************************************************/
+.zd-icon-ui-listview li a:first-child {
+    height: 4.5em !important;
+    line-height: 4.5em;
+    vertical-align: middle;
+}
+
+.zd-icon-ui-listview > .ui-li-has-thumb > .ui-btn {
+    padding: 0em 1em;
+}
+
+.zd-icon-ui-listview .ui-li-has-thumb > .ui-btn > img:first-child:not(.ui-li-icon) {
+    position: absolute;
+    top: .2em;
+    right: 2.5em;
+    left: auto;
+    border: 2px solid #fff;
+    width: 4em !important;
+    height: 4em !important;
+    border-top-left-radius: 999px;
+    -webkit-border-top-left-radius: 999px;
+    -moz-border-radius-topleft: 999px;
+    border-top-right-radius: 999px;
+    -webkit-border-top-right-radius: 999px;
+    -moz-border-radius-topright: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-border-bottom-right-radius: 999px;
+    -moz-border-radius-bottomright: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-border-bottom-left-radius: 999px;
+    -moz-border-radius-bottomleft: 999px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    background-clip: padding-box;
+}
+
+
+/***********************************************************************************/
+/* 医疗报告列表样式                                                                */
+/***********************************************************************************/
+.zd-report {
+    width: 100%;
+    height: 70px;
+}
+
+    .zd-report > div.zd-report-calendar {
+        float: left;
+        width: 55px;
+        height: 70px;
+        margin-left: 2px;
+        background: url(images/calendar_bg.png) no-repeat;
+        background-size: auto 45px;
+        background-position: center;
+        text-align: center;
+    }
+
+        .zd-report > div.zd-report-calendar > .zd-report-month {
+            font-size: .75em;
+            font-weight: 400;
+            margin-top: 1.1em;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            color: #fff;
+        }
+
+        .zd-report > div.zd-report-calendar > .zd-report-day {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 2px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+    .zd-report > img {
+        display: block;
+        float: left;
+        height: 70px;
+        width: auto;
+    }
+
+    .zd-report > div:last-child {
+        margin-left: 85px;
+        margin-right: 10px;
+    }
+
+        /*去掉右边“＞”符号样式
+        .zd-report > div:last-child > div:first-child {
+            float: right;
+            height: 70px;
+            top: inherit;
+        }
+        */
+
+        .zd-report > div:last-child > div:last-child {
+            height: 60px;
+            top: 4px;
+        }
+
+            .zd-report > div:last-child > div:last-child > h2.zd-report-type {
+                display: block;
+                font-size: 1em;
+                font-weight: bold;
+            }
+
+                .zd-report > div:last-child > div:last-child > h2.zd-report-type > span:first-child {
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    max-width: 10.4em;
+                }
+
+    .zd-report .ui-popup {
+        border-color: #fcb340 !important;
+    }
+
+        .zd-report .ui-popup > p.zd-report-name {
+            position: absolute;
+            top: .8em;
+            right: .8em;
+            margin: 0;
+            text-align: right;
+            font-size: .75em;
+            font-weight: 400;
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 6em;
+            color: #727272;
+        }
+
+        .zd-report .ui-popup > p.zd-report-hospital {
+            display: block;
+            font-size: .75em;
+            font-weight: 400;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 12em;
+            color: #727272;
+        }
+
+    .zd-report .ui-popup-arrow-container.ui-popup-arrow-l {
+        top: 50%;
+    }
+
+    .zd-report .ui-popup-arrow-container .ui-popup-arrow {
+        border-width: 1px;
+        border-color: #fcb340;
+    }
+
+    .zd-report .ui-btn-icon-notext:after {
+        background-color: rgba(0,0,0,0);
+    }
+
+.zd-report-year {
+    color: #7c7c7c;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-left: 1em;
+    padding-left: 1.5em;
+    font-size: .9em;
+    background: url(images/history.png) no-repeat;
+    background-size: 1em;
+    background-position: left center;
+    height: 1.5em;
+    line-height: 1.5em;
+    vertical-align: middle;
+}
+
+/***********************************************************************************/
+/* 多格式图文listview样式                                                          */
+/***********************************************************************************/
+.zd-formatted-ui-listview > .ui-li-has-thumb > .ui-btn {
+    padding-left: 65px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.zd-formatted-ui-listview .ui-li-has-thumb > .ui-btn > img:first-child {
+    top: 4px;
+    left: 4px;
+    height: 50px;
+    width: 50px;
+}
+
+.zd-formatted-ui-listview .ui-li-aside {
+    top: .7em;
+    right: .8em;
+}
+
+.zd-formatted-ui-listview > li h2 {
+    width: 12em;
+}
+
+
+/***********************************************************************************/
+/* 宝宝头像水平滚动列表样式                                                        */
+/***********************************************************************************/
+div#mychildrenwrapper {
+    z-index: 1;
+    height: 100px !important;
+    width: 100%;
+    overflow: hidden;
+    background: url(images/mychildren_bg.png) no-repeat;
+    background-size: 100%;
+}
+
+div#mychildrenscroller {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    height: 5em;
+    width: 320px;
+    margin: 10px;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+    div#mychildrenscroller .ui-listview li {
+        float: left;
+        width: 200px;
+        height: 100%;
+    }
+
+    div#mychildrenscroller .ui-listview > li > a.ui-btn {
+        border: none;
+        height: 5em;
+        background: none !important;
+        text-shadow: none !important;
+    }
+
+    div#mychildrenscroller .ui-listview > li h2 {
+        width: 5em;
+    }
+
+    div#mychildrenscroller .ui-listview > li.ui-last-child > a.ui-btn {
+        border-bottom-width: 0px;
+    }
+
+    div#mychildrenscroller .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child {
+        height: 78px;
+        width: 78px;
+        border: 4px solid rgb(255,202,116);
+        border-top-left-radius: 999px;
+        -webkit-border-top-left-radius: 999px;
+        -moz-border-radius-topleft: 999px;
+        border-top-right-radius: 999px;
+        -webkit-border-top-right-radius: 999px;
+        -moz-border-radius-topright: 999px;
+        border-bottom-right-radius: 999px;
+        -webkit-border-bottom-right-radius: 999px;
+        -moz-border-radius-bottomright: 999px;
+        border-bottom-left-radius: 999px;
+        -webkit-border-bottom-left-radius: 999px;
+        -moz-border-radius-bottomleft: 999px;
+        border-radius: 999px;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        background-clip: padding-box;
+        background-color: rgb(255,202,116);
+    }
+
+    /* Hide the icon */
+    div#mychildrenscroller .ui-listview .ui-btn-icon-right:after {
+        display: none;
+    }
+
+
+
+/***********************************************************************************/
+/* 通用提示信息样式                                                                */
+/***********************************************************************************/
+.zd-tooltip {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #505050;
+}
+
+    .zd-tooltip h2 {
+        font-size: 1em;
+        font-weight: 700;
+        margin: 0;
+        color: #5b2f32;
+    }
+
+    .zd-tooltip p {
+        font-size: .75em;
+        font-weight: 400;
+        margin: 5px 0px 0px 0px;
+    }
+
+
+/***********************************************************************************/
+/* 通用加载动画样式                                                                */
+/***********************************************************************************/
+.zd-loading {
+    height: 1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .zd-loading p {
+        background-image: url(images/small-loader.gif);
+        background-repeat: no-repeat;
+        font-size: .75em;
+        font-weight: 400;
+        width: 8em;
+        padding-left: 20px;
+        position: absolute;
+        left: 50%;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: -4em;
+        margin-right: 0;
+    }
+
+
+/***********************************************************************************/
+/* 相册listview样式                                                                */
+/***********************************************************************************/
+.zd-photos-ui-listview li a:first-child {
+    height: 4.5em !important;
+    line-height: 4.5em;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.zd-photos-ui-listview div#photowrapper {
+    position: absolute;
+    z-index: 1;
+    top: .8em;
+    right: 2.5em;
+    height: 3.2em !important;
+    width: 11em;
+    background: none;
+    overflow: hidden;
+}
+
+    .zd-photos-ui-listview div#photowrapper > div#photoscroller {
+        position: absolute;
+        z-index: 1;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        width: 18em;
+        height: 3.2em;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+
+        .zd-photos-ui-listview div#photowrapper > div#photoscroller > img {
+            float: left;
+            border: 1px solid darkgray;
+            width: 3em !important;
+            height: 3em !important;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            background-clip: padding-box;
+        }
+
+            .zd-photos-ui-listview div#photowrapper > div#photoscroller > img:not(:first-child) {
+                margin-left: .5em;
+            }
+
+
+/***********************************************************************************/
+/* 相册grid样式                                                                    */
+/***********************************************************************************/
+.zd-gallery {
+    margin: 0;
+    padding: 0;
+}
+
+    .zd-gallery:after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .zd-gallery li {
+        list-style-type: none;
+        float: left;
+        width: 42%; /* 50% incl. 2 x 4% margin */
+        margin: 10px 4%;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+    }
+
+        .zd-gallery li a {
+            display: block;
+            border: 2px solid #f5ad04;
+        }
+
+            .zd-gallery li a img {
+                -webkit-back-visibility: hidden;
+                display: block;
+                width: 100%;
+                height: auto;
+                vertical-align: bottom;
+                margin: 0 auto;
+            }
+
+        .zd-gallery li p {
+            text-align: center;
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+/* First breakpoint is 20em (320px,16px/1em). 3 column layout. */
+@media all and ( min-width: 20em ) {
+    .zd-gallery li {
+        list-style-type: none;
+        float: left;
+        width: 27.07%; /* 33.33% incl. 2 x 3.13% margin */
+        margin: 10px 3.13%;
+    }
+}
+/* Second breakpoint is 37.5em (600px,16px/1em). 4 column layout. */
+@media all and ( min-width: 37.5em ) {
+    .zd-gallery li {
+        list-style-type: none;
+        float: left;
+        width: 21.66%; /* 25% incl. 2 x 1.67% margin */
+        margin: 10px 1.67%;
+    }
+}
+/* Third breakpoint is 50em (800px,16px/1em). 5 column layout. */
+@media all and ( min-width: 50em ) {
+    .zd-gallery li {
+        list-style-type: none;
+        float: left;
+        width: 17.5%; /* 20% incl. 2 x 1.25% margin */
+        margin: 10px 1.25%;
+    }
+}
+
+.zd-gallery-round li a {
+    border-top-left-radius: 999px;
+    -webkit-border-top-left-radius: 999px;
+    -moz-border-radius-topleft: 999px;
+    border-top-right-radius: 999px;
+    -webkit-border-top-right-radius: 999px;
+    -moz-border-radius-topright: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-border-bottom-right-radius: 999px;
+    -moz-border-radius-bottomright: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-border-bottom-left-radius: 999px;
+    -moz-border-radius-bottomleft: 999px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    background-clip: padding-box;
+}
+
+    .zd-gallery-round li a img {
+        border-top-left-radius: 999px;
+        -webkit-border-top-left-radius: 999px;
+        -moz-border-radius-topleft: 999px;
+        border-top-right-radius: 999px;
+        -webkit-border-top-right-radius: 999px;
+        -moz-border-radius-topright: 999px;
+        border-bottom-right-radius: 999px;
+        -webkit-border-bottom-right-radius: 999px;
+        -moz-border-radius-bottomright: 999px;
+        border-bottom-left-radius: 999px;
+        -webkit-border-bottom-left-radius: 999px;
+        -moz-border-radius-bottomleft: 999px;
+        border-radius: 999px;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        background-clip: padding-box;
+    }
+
+/***********************************************************************************/
+/* 通用垂直区域滚动样式                                                            */
+/***********************************************************************************/
+div#vertwrapper, #vaccineWrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Prevent native touch events on Windows */
+    -ms-touch-action: none;
+    /* Prevent the callout on tap-hold and text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Prevent text resize on orientation change, useful for web-apps */
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+div#vertscroller, #vaccineScroller {
+    position: absolute;
+    width: 100%;
+    /* Prevent elements to be highlighted on tap */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /* Put the scroller into the HW Compositing layer right from the start */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+
+/***********************************************************************************/
+/* 通用水平区域滚动样式                                                            */
+/***********************************************************************************/
+div#horzwrapper {
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+div#horzscroller {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+
+/***********************************************************************************/
+/* 监测记录详情列表样式                                                            */
+/***********************************************************************************/
+/* These apply across all breakpoints because they are outside of a media query */
+/* Make the labels light gray all caps across the board */
+table.zd-monitor-details-list {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.zd-monitor-details-list thead th,
+.zd-monitor-details-list tbody th .ui-table-cell-label,
+.zd-monitor-details-list tbody td .ui-table-cell-label {
+    text-transform: uppercase;
+    font-size: .85em;
+    color: rgba(0,0,0,0.5);
+    font-weight: normal;
+}
+/* White bg, large blue text for rank and title */
+.zd-monitor-details-list tbody th {
+    font-size: .8em;
+    background-color: #fff;
+    color: #77bbff;
+    text-align: center;
+}
+
+.zd-monitor-details-list tbody td {
+    font-size: .85em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.zd-monitor-details-list tbody #clearDetail {
+    word-wrap: break-word;
+}
+
+/*  Add a bit of extra left padding for the title */
+.zd-monitor-details-list tbody td.title {
+    padding-left: .8em;
+}
+
+.zd-monitor-details-list tbody td img {
+    width: 20px;
+    height: 20px;
+    background: #FFC974;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/* Add strokes */
+.zd-monitor-details-list thead th {
+    border-bottom: 1px solid #d6d6d6; /* non-RGBA fallback */
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.zd-monitor-details-list tbody th,
+.zd-monitor-details-list tbody td {
+    border-bottom: 1px solid #e6e6e6; /* non-RGBA fallback  */
+    border-bottom: 1px solid rgba(0,0,0,.05);
+}
+/*  Custom stacked styles for mobile sizes */
+/*  Use a max-width media query so we don't have to undo these styles */
+@media (max-width: 10em) {
+    /*  Negate the margin between sections */
+    .zd-monitor-details-list tbody th {
+        margin-top: 0;
+        text-align: left;
+    }
+    /*  White bg, large blue text for rank and title */
+    .zd-monitor-details-list tbody th,
+    .zd-monitor-details-list tbody td.title {
+        display: block;
+        font-size: .8em;
+        line-height: 110%;
+        padding: .5em .5em;
+        background-color: #fff;
+        color: #77bbff;
+        -moz-box-shadow: 0 1px 6px rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.1);
+        box-shadow: 0 1px 6px rgba(0,0,0,.1);
+    }
+        /*  Hide labels for rank and title */
+        .zd-monitor-details-list tbody th .ui-table-cell-label,
+        .zd-monitor-details-list tbody td.title .ui-table-cell-label {
+            display: none;
+        }
+    /*  Position the title next to the rank, pad to the left */
+    .zd-monitor-details-list tbody td.title {
+        margin-top: -2.1em;
+        padding-left: 2.2em;
+        border-bottom: 1px solid rgba(0,0,0,.15);
+    }
+    /*  Make the data bold */
+    .zd-monitor-details-list th,
+    .zd-monitor-details-list td {
+        font-weight: bold;
+    }
+        /* Make the label elements a percentage width */
+        .zd-monitor-details-list td .ui-table-cell-label,
+        .zd-monitor-details-list th .ui-table-cell-label {
+            min-width: 20%;
+        }
+}
+/* Media query to show as a standard table at wider widths */
+@media ( min-width: 10em ) {
+    /* Show the table header rows */
+    .zd-monitor-details-list td,
+    .zd-monitor-details-list th,
+    .zd-monitor-details-list tbody th,
+    .zd-monitor-details-list tbody td,
+    .zd-monitor-details-list thead td,
+    .zd-monitor-details-list thead th {
+        display: table-cell;
+        margin: 0;
+    }
+        /* Hide the labels in each cell */
+        .zd-monitor-details-list td .ui-table-cell-label,
+        .zd-monitor-details-list th .ui-table-cell-label {
+            display: none;
+        }
+}
+/* Hack to make IE9 and WP7.5 treat cells like block level elements */
+/* Applied in a max-width media query up to the table layout breakpoint so we don't need to negate this */
+@media ( max-width: 10em ) {
+    .zd-monitor-details-list td,
+    .zd-monitor-details-list th {
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        clear: left;
+    }
+}
+
+/***********************************************************************************/
+/* new个数样式                                                                     */
+/***********************************************************************************/
+.zd-new-count {
+    display: inline-block;
+    min-width: 1em;
+    position: relative;
+    top: -4px;
+    background: red;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: none;
+    font-weight: 100;
+    font-size: .7em;
+    color: white;
+    padding: 2px;
+    line-height: 1em;
+    border-top-left-radius: 999px;
+    -webkit-border-top-left-radius: 999px;
+    -moz-border-radius-topleft: 999px;
+    border-top-right-radius: 999px;
+    -webkit-border-top-right-radius: 999px;
+    -moz-border-radius-topright: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-border-bottom-right-radius: 999px;
+    -moz-border-radius-bottomright: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-border-bottom-left-radius: 999px;
+    -moz-border-radius-bottomleft: 999px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    background-clip: padding-box;
+}
+
+
+/***********************************************************************************/
+/* 消息列表样式                                                                    */
+/***********************************************************************************/
+.zd-message {
+    text-shadow: none;
+    padding: 10px 10px 0px 10px;
+}
+
+.zd-message-datetime {
+    text-align: center;
+    font-size: .7em;
+    background: url(images/message_separator.png) no-repeat;
+    background-position: 0% 50%;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+    color: #505050;
+}
+
+    .zd-message-datetime span {
+        background-color: #f9f9f9;
+        padding: 4px;
+    }
+
+.zd-message-body {
+    padding: .5em;
+    background-color: #d9d9d9;
+    border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+}
+
+.zd-message-title {
+    font-size: 1em;
+    font-weight: 700;
+    display: block;
+    margin: .5em 0em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.zd-message-content {
+    font-size: .75em;
+    font-weight: 400;
+    line-height: 1.5em;
+    height: 4.5em;
+    margin: .5em 0em;
+    overflow: hidden;
+    color: #505050;
+}
+
+    .zd-message-content:before {
+        content: "";
+        float: left;
+        width: 5px;
+        height: 3em;
+    }
+
+    .zd-message-content > *:first-child {
+        float: right;
+        width: 100%;
+        margin-left: -5px;
+    }
+
+    .zd-message-content:after {
+        content: "\02026";
+        box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        float: right;
+        position: relative;
+        /*top: -3em;*/
+        left: 100%;
+        width: 1.5em;
+        margin-left: -1.5em;
+        padding-right: 5px;
+        text-align: right;
+        background-color: #d9d9d9;
+    }
+
+    .zd-message-content > div > p {
+        margin: 0;
+        padding: 0;
+    }
+
+.zd-message-body > .ui-btn {
+    float: right;
+    margin: 0;
+    border: none !important;
+    background-color: #d9d9d9 !important;
+    text-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 2em !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: .9em;
+}
+
+.zd-message-body > hr {
+    border-bottom: none;
+}
+
+
+/***********************************************************************************/
+/* 开关选择控制样式                                                                */
+/***********************************************************************************/
+div.ui-slider-switch {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    right: .5625em;
+    width: 3.8em;
+}
+
+.ui-slider-track.ui-corner-all {
+    border-top-left-radius: 999px;
+    -webkit-border-top-left-radius: 999px;
+    -moz-border-radius-topleft: 999px;
+    border-top-right-radius: 999px;
+    -webkit-border-top-right-radius: 999px;
+    -moz-border-radius-topright: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-border-bottom-right-radius: 999px;
+    -moz-border-radius-bottomright: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-border-bottom-left-radius: 999px;
+    -moz-border-radius-bottomleft: 999px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    background-clip: padding-box;
+}
+
+
+/***********************************************************************************/
+/* 带button的列表样式                                                              */
+/***********************************************************************************/
+.zd-button-ui-listview > .ui-li-has-thumb > .ui-btn {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.zd-button-ui-listview > li h2 {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0.9em;
+}
+
+.zd-button-ui-listview > li p {
+    margin-top: 1.2em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.zd-button-ui-listview .ui-li-aside {
+    top: .8em;
+    right: 1em;
+}
+
+.zd-button-ui-listview > li.ui-li-has-alt > .ui-btn + .ui-btn {
+    height: 1.75em;
+    right: 1.2em;
+    top: 2.2em;
+    border: none;
+}
+
+.zd-button-ui-listview > li.ui-li-has-alt > .ui-btn {
+    margin-right: 0;
+}
+
+.zd-button-ui-listview .ui-btn-icon-notext:after {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+/***********************************************************************************/
+/* 自定义icon样式                                                                  */
+/***********************************************************************************/
+/*垃圾桶图标样式*/
+.ui-icon-zd-trash:after {
+    background-image: url("images/trash.png");
+    /* Make your icon fit */
+    background-size: 24px 24px;
+}
+
+
+/***********************************************************************************/
+/* 红点样式                                                                        */
+/***********************************************************************************/
+span.zd-red-dot {
+    display: inline-block;
+    width: .5em;
+    height: .5em;
+    position: relative;
+    top: -6px;
+    background: red;
+    border-top-left-radius: 999px;
+    -webkit-border-top-left-radius: 999px;
+    -moz-border-radius-topleft: 999px;
+    border-top-right-radius: 999px;
+    -webkit-border-top-right-radius: 999px;
+    -moz-border-radius-topright: 999px;
+    border-bottom-right-radius: 999px;
+    -webkit-border-bottom-right-radius: 999px;
+    -moz-border-radius-bottomright: 999px;
+    border-bottom-left-radius: 999px;
+    -webkit-border-bottom-left-radius: 999px;
+    -moz-border-radius-bottomleft: 999px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    background-clip: padding-box;
+}
+
+/***********************************************************************************/
+/* 所有监测页面的建议样式                                                          */
+/***********************************************************************************/
+.monitor-Advice {
+    margin: 0 !important;
+    margin-top: 5px !important;
+}
+
+    .monitor-Advice > li:not(:first-child) {
+        border: 1px solid #cdcdcd !important;
+        border-top: none !important;
+        padding-left: 4.5em !important;
+        padding-right: 0.5em !important;
+        padding-bottom: 0.4em !important;
+    }
+
+.monitor-Advice-title {
+    padding: 0 2px !important;
+    height: 30px;
+    margin-top: 20px;
+    background: #cdcdcd !important;
+    text-align: left;
+    padding-left: 5px !important;
+    line-height: 30px;
+    color: #fff !important;
+}
+
+.monitor-Advice > li > img {
+    width: 60px;
+    height: 60px;
+    top: 5px !important;
+    left: 5px !important;
+    border-radius: 60px !important;
+}
+
+.monitor-Advice > li > h2 {
+    margin: -5px 0 0 0;
+}
+
+.monitor-Advice > li > p {
+    margin: 0.2em 0px;
+}
+
+.monitor-Advice-timespan {
+    top: 0.8em !important;
+    right: 1em !important;
+}
+
+.monitor-Advice-organName {
+    color: #7d7d7d;
+}
+
+.monitor-Advice-content {
+    font-size: 12px;
+    color: #333;
+    white-space: normal;
+    height: auto;
+    min-height: 25px;
+    font-size: 12px;
+    font-weight: normal;
+}
+/***********************************************************************************/
+/* 所有检测图例样式                                                         */
+/***********************************************************************************/
+/******固定图例********/
+.zd-grid-lend #xunit {
+    position: absolute;
+    top: 220px;
+    right: 0px;
+    z-index: 9999;
+    font-family: Verdana;
+    font-size: 9px;
+}
+
+.zd-grid-lend #yunit {
+    position: absolute;
+    top: 2px;
+    left: 25px;
+    z-index: 9999;
+    font-family: Verdana;
+    font-size: 9px;
+}
+
+.zd-grid-lend #legend {
+    position: absolute;
+    top: 2px;
+    left: 80px;
+    z-index: 9999;
+    border: medium none !important;
+}
+
+    .zd-grid-lend #legend div {
+        float: left;
+    }
+
+    .zd-grid-lend #legend .legend-tip {
+        color: #333;
+        font-size: 10px;
+        margin-right: 5px;
+    }
+
+    .zd-grid-lend #legend input {
+        width: 11px !important;
+        height: 11px !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0;
+    }
+
+.zd-grid-lend .ui-input-text {
+    width: 11px !important;
+    margin: 0px !important;
+    border: 0;
+}
+
+    .zd-grid-lend .ui-input-text input {
+        min-height: 0;
+    }
+
+.zd-grid-lend .ui-state-disabled {
+    opacity: 1;
+}

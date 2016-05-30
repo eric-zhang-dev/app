@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>新闻</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			.content {
+				font-size: 12px;
+				color: #5b2f32;
+				margin: 0;
+				text-align: center;
+				text-indent: 25px;
+				white-space: normal !important;
+				overflow: auto;
+			}
+			
+			#list {
+				list-style-type: none;
+				padding: 0;
+				margin: 10px;
+			}
+			
+			#item-id {
+				border: 1px dotted #6699cc;
+				border-radius: 10px;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul data-role="listview" id="list" data-inset="true">
+		</ul>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			window.Android.hot();
+		});
+
+		function MyRefresh(result) {
+			result.result.map(function(content) {
+				var item;
+				item = "<li id='item-id' onclick=\"onClic('" +
+					content + "'  );\"><a><h6 class='content'>" + content + "</h6></a></li>";
+				$("#list").append(item);
+			});
+		}
+		function onClic(content){
+			window.Android.detial(content);
+		}
+	</script>
+
+</html>

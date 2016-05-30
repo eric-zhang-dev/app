@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的第一个jquery_monile 页面</title>
+		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			.ui-block-a,
+			.ui-block-b,
+			.ui-block-c {
+				background-color: #ffffff;
+				border: 1px solid #e8e8e8;
+				height: 100%;
+				width: 100%;
+				font-weight: bold;
+				text-align: center;
+				overflow: auto;
+				margin: 0;
+			}
+			
+			.ui-content {
+				padding: 0;
+				background-color: #eeeff3;
+			}
+			
+			.type {
+				padding: 10px;
+				color: #000000;
+				font-size: 14px;
+			}
+			
+			#title {
+				color: #000000;
+				font-size: 12px;
+				font-weight: 15px;
+				margin: 0;
+				padding-bottom: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div data-role="page" id="pageone">
+			<div data-role="main" class="ui-content" data-theme = "a">
+				<!--<p id="info">信息</p>
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<img src="../www/img/we_chat_login.png" />
+						<br />
+						<p id="title">第一个列</p>
+					</div>
+					<div class="ui-block-b">
+						<img src="../www/img/we_chat_login.png" />
+						<br />
+						<p id="title">第二个列</p>
+					</div>
+					<div class="ui-block-c">
+						<img src="../www/img/we_chat_login.png" />
+						<br />
+						<p id="title">第三个列</p>
+					</div>
+				</div>-->
+				<div id="item" class="ui-grid-b">
+
+				</div>
+				<div style="margin-bottom: 10px;"></div>
+			</div>
+		</div>
+		</div>-->
+		<script type="text/javascript">
+			$(function() {
+				$.getJSON('../json/test.json', function(date) {
+					date.data.map(function(item) {
+						var divBlock = "<p class='type'>" + item.type + "</p>";
+						$("#item").append(divBlock);
+						item.c.map(function(content, index) {
+//							var k = $.param(content);
+//							alert(k);
+							//						console.log(index);
+							var className = "ui-block-a";
+							if (index % 3 == 0) {
+								className = "ui-block-a";
+							} else if (index % 3 == 1) {
+								className = "ui-block-b";
+							} else if (index % 3 == 2) {
+								className = "ui-block-c";
+							}
+							var divs;
+							divs = "<div class='" + className + "' onclick=\"OnItem('" +
+								content.title + "'  );\"><img id='img' src='"+content.img+"' /><br /><p id='title'>" + content.title + "</p></div>";
+							$("#item").append(divs);
+						});
+					});
+				});
+			});
+
+			function OnItem(po) {
+				window.Android.onItem(po);
+			};
+		</script>
+	</body>
+
+</html>

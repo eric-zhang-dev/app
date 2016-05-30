@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>公交信息</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+		<input type="text" id="text" placeholder="上海路" />
+		<input type="button" id="btn" value="提交"></input>
+		<ul id="list"></ul>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#btn').click(function() {
+					var ipt = $('#text').val().trim();
+					if (ipt.length != 0) {
+						window.Android.searchStation(ipt);
+					}
+				});
+			});
+
+			function MyRefresh(result) {
+				//					var o = '{"error_code": 0,"reason": "Success","result": {"data":[{"content":"早上姑姑送来三斤樱桃，公公洗都不洗就吃，我:爸，你也舍得洗洗在吃，那么脏多不卫生啊！公公:你懂啥，这样是原汁原味，洗的味道都洗没了。好吧，我还能说什么呢，然而下午公公就食物中毒呜哇呜哇去医院了……","hashId":"f6fa2de60a293d2b9934301aa986da59","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"头两天约个妹子，当时没想别的，就寻思一起吃个饭，可晚上饭前她说她来姨妈了，我说，，你是老手啊，她笑笑不说话，吃饭的时候人多拼酒，她喝了一斤半，我也不行了，就去卫生间吐，一开门，她在里面吐呢，看到我说，不喝了不喝了，咱俩找地方睡觉吧，（她家就在楼上），我这小脾气就上来了，不行！我们又喝三瓶啤酒，她趴盘子里睡着了，我买完单就走了，走了","hashId":"1a006cadedde6b9c3c3f2a8adc6edb4d","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"之前在一店里上班，老板特黑，从来不让请假，终于有一天，老板发善心了，说:“这两天不会太忙，谁有事可以请假！”好不容易逮着个机会哪能错过。可想想又找不出个理由请假，于是我就说:“老板，大姨妈来了，肚子难受，能请假不？”没想到！真没想到！老板居然说可以！于是我就请了一个礼拜的假！等到假期结束，高高兴兴的去上班，到店里一看，傻眼了……服装店成了饭店，女老板换成了男老板……上班三个月，工资一次也没领过，第一个月欠，第二个月拖，第三个月老板不见了……","hashId":"cbd4447523fd2e09396b5f33d03986a1","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"晚上无聊，找了个妹子聊天··· “妹子···你真漂亮！” “少废话，在午 夜 神 器找我说话不就想上我嘛！” “。。。而且冰雪聪明！”","hashId":"3f6b50b7a0b46bcb71064cba4da5dd56","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"以前学校那种厕所大家都认识吧，是一排坑的，一次去上厕所，那个蛆满地都是，就不想走走进去，大家都一个大跨步跳到蹲坑边缘踩着空的位置进去，没想到出来的时候没一步跳出去，摔倒在地上，地上都是蛆啊，大家能想像后面那些想笑不敢笑的人吗？赶紧溜吧，丢死人了","hashId":"0628a9b382777ae21fdca9a4892515a4","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"有一天，逗比同桌问我，金木水火土谁的腿最长，我白了他一眼说我怎么知道，他说，火腿长（肠），","hashId":"3ed6b1d717433e4b955c589be6485a56","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"#你为恋人做过的最低调的事情是？# 高三那会儿用A4纸把整个理综的重点知识都写了一遍送给她，包括物理公式解题思路，化学各课内及课外方常见程式物质性质颜色出现场合，生物要点遗传部分常见性状遗传特性等等等等。。。。后来被她复印后送给另一个重点班的男盆友了。。。。再后来我收了一个男徒弟和一个前女友。。。我说这么多只想问一下有需要家教的吗，最近穷疯了！！！！！","hashId":"3fa0d43562b03cf2e817b4ed84af02fa","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"记得以前小学只有周一和正式场合需要穿校服，其他时候无所谓，有次本人心血来潮，在不需要穿校服的时候穿了，然后路上童鞋们见一个跑一个，全TM回家拿校服去了。最后知道我是闲的蛋疼才穿校服时差点被打死","hashId":"4e36a7aad94a5e5a3e5cb240034ea207","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"单位有个妹子，波大脸靓，但是脾气有点暴，力气也大。而且不知为什么，跟赌神似的格外排斥拍照，我们有时想拍她几张靓照，一旦发现，立即转身，捂脸，有多远走多远。今天上午单位搞演讲比赛，我有事不能去，跟网管说：趁她上台的时候拍她，看她怎么躲，怎么逃。中午在食堂碰见网管，问：拍到没有？他苦着脸说：她一下台，立刻把我手机抢去，图片删完。靠，你一个大男人还能让她抢手机？不是“一个大男人”，辉哥和小胖帮我拦她，三个大男人都制服不了她。尼玛，要是有一款色狼主题的游戏，这妞儿绝对是需要玩家组团刷的终极老怪","hashId":"caa5b0799511e80c8c070c32e87b3960","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"},{"content":"我和妈妈在聊天，儿子在一旁插不上话，一激动有点口吃了，你们都闭……闭……闭……闭上眼睛，我给你们变魔术，本来没啥，老妈重复了一句，我和老妈都笑疯了","hashId":"6430a41bb67e2aa43eddd49b2e170525","unixtime":1463060034,"updatetime":"2016-05-12 21:33:54"}]}}'
+				//					var result = window.JSON.parse(o);
+				result.result.map(function(content) {
+					var item;
+					item = "<li id='item-id'><a><h6 class='content'>" + JSON.stringify(content) + "</h6></a></li>";
+					$("#list").append(item);
+				});
+			}
+		</script>
+	</body>
+
+</html>

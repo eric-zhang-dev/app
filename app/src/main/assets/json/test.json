@@ -1,0 +1,77 @@
+{
+	"data": [
+		{
+			"type": "精选",
+			"id": "1",
+			"c": [
+				{
+					"title": "新闻",
+					"img": "../www/img/1.png"
+				}, {
+					"title": "精选",
+					"img": "../www/img/2.png"
+				}, {
+					"title": "段子",
+					"img": "../www/img/3.png"
+				}
+			]
+		}, {
+			"type": "信息查询",
+			"id": "2",
+			"c": [
+				{
+					"title": "火车时刻表",
+					"img": "../www/img/4.png"
+				}, {
+					"title": "公交线路",
+					"img": "../www/img/5.png"
+				}, {
+					"title": "汽车查询",
+					"img": "../www/img/6.png"
+				}, {
+					"title": "天气预报",
+					"img": "../www/img/7.png"
+				}, {
+					"title": "股票查询",
+					"img": "../www/img/8.png"
+				}, {
+					"title": "万年历",
+					"img": "../www/img/9.png"
+				}, {
+					"title": "足球联赛",
+					"img": "../www/img/10.png"
+				}, {
+					"title": "NBA",
+					"img": "../www/img/11.png"
+				}, {
+					"title": "暂未开通",
+					"img": "../www/img/1.png"
+				}
+			]
+		}, {
+			"type": "运势查询",
+			"id": "1",
+			"c": [
+				{
+					"title": "星座运势",
+					"img": "../www/img/12.png"
+				}, {
+					"title": "周公解梦",
+					"img": "../www/img/13.png"
+				}, {
+					"title": "暂未开通",
+					"img": "../www/img/1.png"
+				}
+			]
+		}, {
+			"type": "机器猫",
+			"id": "1",
+			"c": [
+				{
+					"title": "问答机器人",
+					"img": "../www/img/14.png"
+				}
+			]
+		}
+	]
+}

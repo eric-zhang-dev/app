@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
+		<title>测试</title>
+		<style type="text/css">
+			#plan1{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border: 1px solid #0050D0;
+				background: #96e555;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div id="plan1"></div>
+		<div>
+			<h1 id="my_h1">hello</h1>
+			<span id="my_span" style="display: none;">dddddddddddddddddddddddddddddddddddddddd<br/>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br/>dddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br/>dddddddddddddddddddddd<br/>dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</span>
+		</div>
+		<input type="text" class="address" value="输入邮箱地址" />
+		<input type="text" class="password" value="输入邮箱密码" />
+		<input type="button" value="登录" />
+		<select id="single">
+			<option>选择1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+		</select>
+		<select id="multiple" multiple="multiple" style="height: 120px;">
+			<option selected="selected">1号</option>
+			<option>选择2号</option>
+			<option>选择3号</option>
+			<option>选择4号</option>
+			<option selected="selected">5号</option>
+		</select>
+		<input type="checkbox" value="check1" />多选1
+		<input type="checkbox" value="check2" />多选2
+		<input type="checkbox" value="check3" />多选3
+		<input type="checkbox" value="check4" />多选4
+		<input type="radio" value="radio1" />单选1
+		<input type="radio" value="radio2" />单选2
+		<input type="radio" value="radio3" />单选3
+		<script type="text/javascript">
+			$("#single").val("选择2号");
+			$(".address").focus(function() {
+				var tv_value = $(this).val();
+				if (tv_value == this.defaultValue) {
+					$(this).val("");
+				}
+			});
+			$(".address").blur(function() {
+				var tv_value = $(this).val();
+				if (tv_value == "") {
+					$(this).val("输入邮箱地址");
+				}
+			});
+			$('#my_h1').bind("click", function() {
+				$(this).next().toggle();
+//				if ($(this).next().is(":visible")) {
+//					$(this).next().slideUp();
+//				} else {
+//					$(this).next().slideDown();
+//				}
+			});
+			$(function(){
+				$('#plan1').click(function(){
+					$(this).animate({left:"500px",height:"200px",width:"200px"},30,function(){
+						$(this).css("border","5px solid red");
+					});
+				});
+			});
+			$('#plan1').hover(function(){
+				$(this).stop().animate({height:"200px",width:"200px"},200);
+			},function(){
+				$(this).stop().animate({height:"22px",width:"60px"},200);
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>周公解梦</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<!--<script src="js/jquery.mobile-1.4.5.min.js"></script>-->
+		<script src="js/jquery-1.12.3.min.js"></script>
+		<style type="text/css">
+			#b_div {
+				text-align: -moz-center;
+			}
+			
+			.content {
+				font-size: 12px;
+				color: #5b2f32;
+				margin: 0;
+				padding-left: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="b_div">
+			<input type="text" name="user_email" placeholder="输入关键字" id="tv_content" />
+			<button class="ui-btn ui-btn-inline ui-corner-all" onclick="Search()">搜索</button>
+			<ul data-role="listview" id="list" data-inset="true">
+			</ul>
+		</div>
+		<script type="text/javascript">
+			function Search() {
+				var v = $("#tv_content").val();
+				if (v.length == 0) {
+					alert("输入内容");
+				} else {
+					window.Android.searchDream(v);
+				}
+			};
+
+			function MyRefresh(result) {
+				if (result.length != 0 && $("#list").length != 0) {
+					$("#list").empty();
+				}
+				result.result.map(function(content) {
+					var item;
+					item = "<li id='item-id'><a><h6 class='content'>" + "" + content.title + "</h6><p id='time'>" +
+						content.des + "</p></a></li>";
+					$("#list").append(item);
+				});
+			};
+		</script>
+	</body>
+
+</html>

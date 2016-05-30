@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>足球联赛</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			window.Android.football();
+		});
+
+		function MyRefresh(result) {
+			result.result.list.map(function(content) {
+				var item;
+				item = "<span id='item-id'><a><h6 class='content'>" + JSON.stringify(content) + "</h6></a></span>";
+				$("#div").append(item);
+			});
+		}
+	</script>
+
+</html>

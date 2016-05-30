@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>Listview</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<!--<script src="js/jquery.mobile-1.4.5.min.js"></script>-->
+		<script src="js/jquery-1.12.3.min.js"></script>
+	</head>
+
+	<body onload="loadingData()" style="background-color: #ffffff; ">
+		<style type="text/css">
+			.content {
+				/*background-color: #0894EC;*/
+				font-size: 12px;
+				color: #5b2f32;
+				margin: 0;
+				text-indent: 25px;
+				white-space: normal !important;
+				overflow: auto;
+			}
+			
+			#item-id {
+				border: 1px dotted #6699cc;
+				border-radius: 10px;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			
+			#time {
+				margin-top: 5px;
+				margin-bottom: 0px;
+				min-height: 6px;
+				text-align: right;
+				font-size: 14px;
+				color: #D3D3D3;
+			}
+			
+			#list {
+				list-style-type: none;
+				padding: 0;
+			}
+			
+			#img {
+				max-width: 100%;
+				text-align: center;
+				/*width: 50%;
+				height: 50%;*/
+			}
+			
+			#loading {
+				display: none;
+				text-align: center;
+				color: #5b2f32;
+			}
+		</style>
+		<!--<video width="100%" height="30%" controls autoplay="autoplay">
+    <source type="audio/mp4" src="http://cv4.jikexueyuan.com/ac93e9caea3cf51dcd8a8c204a87e0f9/201605130929/course/3101-3200/3190/video/9221_b_h264_sd_960_540.mp4"></source>
+</video>-->
+		<div id="res">
+			<!--<input type="date" />
+    <button onclick="myFunction()">点击</button>-->
+			<ul data-role="listview" id="list" data-inset="true">
+			</ul>
+			<div id="loading">
+				<p>正在加载...</p>
+			</div>
+			<span id="lb" style="top:100px;left:100px;position:fixed;"></span>
+			<script type="text/javascript">
+				function myFunction() {
+					alert("hahhahhhahahah")
+				}
+			</script>
+			<script type="text/javascript">
+				var startNum = 1;
+				var endNum = 10;
+				$(document).scroll(function() {
+					//滑动到顶部和底部时调用
+					if ($(document).scrollTop() == 0) {
+						$("#list").empty(); //清空列表
+						startNum = 1;
+						endNum = 10;
+						loadingData();
+					} else if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+						startNum += 10;
+						endNum += 10;
+						loadingData();
+					}
+				})
+
+				function loadingData() {
+					window.Android.loadData(startNum, endNum);
+				}
+
+				function MyRefresh(result) {
+//					var o = '{"error_code": 0,"reason": "Success","result": {"data":[{"content":"骚年，你来地球的目的是什么？","hashId":"4F09E8A1038449EE2E2D2F72D57CB399","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/4F09E8A1038449EE2E2D2F72D57CB399.gif"},{"content":"麻将自摸太激动","hashId":"E5333403095CBC63BCFB55E52AECFA48","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/E5333403095CBC63BCFB55E52AECFA48.gif"},{"content":"两袖清风，一身正气","hashId":"DA2BDC4FDF759F6427637C67FB12C8B4","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/DA2BDC4FDF759F6427637C67FB12C8B4.jpg"},{"content":"河中裸泳 结果发生惊人一幕","hashId":"99B9201ED28F30EEFB27FB38D8C89173","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/99B9201ED28F30EEFB27FB38D8C89173.gif"},{"content":"世界各地的楼梯","hashId":"4192C1568617073B575E8315EC36ED38","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/4192C1568617073B575E8315EC36ED38.jpg"},{"content":"你为什么要超车？！","hashId":"A922CEDF00404412DFC6DF3CDAB15043","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/A922CEDF00404412DFC6DF3CDAB15043.gif"},{"content":"低成本Cosplay","hashId":"95D01DF4630A83C8E3496B0C04735D02","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/95D01DF4630A83C8E3496B0C04735D02.jpg"},{"content":"不走寻常路","hashId":"C6B78AA61201FD9785FBE694CDC58332","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/C6B78AA61201FD9785FBE694CDC58332.gif"},{"content":"时间仿佛静止在了那一刻","hashId":"E62860C65706A71D7890D65052DE7334","unixtime":1461663195,"updatetime":"2016-04-26 17:33:15","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/26/E62860C65706A71D7890D65052DE7334.gif"},{"content":"少爷，老爷说了不让你出去","hashId":"D71266BFD3E073ACBF2F46FD28F1E7F1","unixtime":1461335592,"updatetime":"2016-04-22 22:33:12","url":"http://juheimg.oss-cn-hangzhou.aliyuncs.com/joke/201604/22/D71266BFD3E073ACBF2F46FD28F1E7F1.gif"}]}}'
+//				var result = window.JSON.parse(o);
+				result.result.data.map(function(content) {
+					//							alert(JSON.stringify(content));
+					var item;
+					item = "<li id='item-id'><a><h6 class='content'>" + content.content +
+						"</h6> <img id='img' src='" + content.url + "'/><p id='time'>" +
+						content.updatetime + "</p></a></li>";
+					$("#list").append(item);
+				});
+				}
+			</script>
+	</body>
+
+</html>

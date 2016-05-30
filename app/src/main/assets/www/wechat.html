@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>Listview</title>
+
+		<link rel="stylesheet" href="css/zd/jquery.mobile.custom.zd.css" />
+		<link rel="stylesheet" href="css/zd/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/zd/jquery.mobile.structure.zd.css" />
+		<link rel="stylesheet" href="css/zd/jquery.mobile.zd.css" />
+
+		<script src="js/jquery-1.12.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body onload="loadingData()" style="background-color: #ffffff; ">
+		<style type="text/css">
+			.content {
+				/*background-color: #0894EC;*/
+				font-size: 12px;
+				color: #5b2f32;
+				margin: 0;
+				padding-left: 50px;
+				text-indent: 32px;
+				white-space: normal !important;
+				overflow: auto;
+			}
+			
+			#item-id {
+				border: 1px dotted #6699cc;
+				border-radius: 10px;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			
+			#time {
+				margin-top: 5px;
+				margin-bottom: 0px;
+				min-height: 6px;
+				text-align: right;
+				font-size: 14px;
+				color: #D3D3D3;
+			}
+			
+			#list {
+				list-style-type: none;
+				padding: 0;
+			}
+			
+			#img {
+				width: 45px;
+				border-radius: 5px;
+				height: 45px;
+				position: absolute;
+			}
+			
+			#loading {
+				display: none;
+				text-align: center;
+				color: #5b2f32;
+			}
+		</style>
+		<div data-role="page">
+			<div data-role="main" class="ui-content">
+				<div id="res">
+					<ul data-role="listview" id="list" data-inset="true">
+					</ul>
+					<div id="loading">
+						<p>正在加载...</p>
+					</div>
+					<span id="lb" style="top:100px;left:100px;position:fixed;"></span>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function myFunction() {
+					alert("hahhahhhahahah")
+				}
+			</script>
+			<script type="text/javascript">
+				var pno = 1;
+				$(document).scroll(function() {
+					//滑动到顶部和底部时调用
+					if ($(document).scrollTop() == 0) {
+						$("#list").empty(); //清空列表
+						pno = 1;
+						loadingData();
+					} else if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+						pno++;
+						loadingData();
+					}
+				})
+
+				function loadingData() {
+					window.Android.loadData(pno);
+				}
+
+				function onClic(url) {
+					window.Android.detial(url);
+				}
+
+				function MyRefresh(result) {
+					//										var o = '{"reason":"success","result":{"list":[{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281498.jpg\/640","id":"wechat_20160513049397","source":"Ayawawa","title":"当我们犹豫要不要婚前发生关系的时候，犹豫的是什么？周五5.13","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513049397","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281487.jpg\/640","id":"wechat_20160513049258","source":"大叔爱吐槽","title":"最近很火的帖子：有好多大GG！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513049258","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281484.jpg\/640","id":"wechat_20160513049255","source":"苹果汇","title":"iPhone7PlusCAD图像泄露：机身细节全曝光","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513049255","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281382.jpg\/640","id":"wechat_20160513048531","source":"金馆长","title":"美女，你的B掉了","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513048531","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281383.jpg\/640","id":"wechat_20160513048528","source":"金馆长","title":"我的JJ有11.3英寸长！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513048528","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281345.jpg\/640","id":"wechat_20160513048022","source":"南都娱乐周刊","title":"让男女主角告诉你怎么当个百老汇音乐剧“老司机”","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513048022","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281350.jpg\/640","id":"wechat_20160513048027","source":"南都娱乐周刊","title":"二次元新宠徐海乔：能被b站这一卦喜欢，我觉得潮爆了！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513048027","mark":""},{"firstImg":"","id":"wechat_20160513048433","source":"苹果汇","title":"iPhone7s外形曝光：是不是有点太激进","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513048433","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281323.jpg\/640","id":"wechat_20160513047687","source":"果壳网","title":"雨后的蜘蛛网，会留下多少水滴？","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513047687","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281321.jpg\/640","id":"wechat_20160513047685","source":"果壳网","title":"开普勒又找到太阳系外新行星了，这次有1284颗！？","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513047685","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281297.jpg\/640","id":"wechat_20160513047386","source":"雷锋网","title":"从巨额投资滴滴说起，看看苹果这些年在中国布了哪些局","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513047386","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281295.jpg\/640","id":"wechat_20160513047382","source":"雷锋网","title":"苹果的10亿美金拿来做什么？传滴滴内部已经启动无人车项目","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513047382","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281296.jpg\/640","id":"wechat_20160513047383","source":"雷锋网","title":"在滴滴之前，苹果都喜欢投资怎样的企业？","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513047383","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281271.jpg\/640","id":"wechat_20160513046802","source":"冷兔","title":"【冷兔趣闻】一整天就都是这种状态！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046802","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281280.jpg\/640","id":"wechat_20160513046807","source":"冷兔","title":"哎呀，我腿有点疼，要亲亲才能好！！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046807","mark":"热门"},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281179.jpg\/640","id":"wechat_20160513046404","source":"怪噜范","title":"老汉相亲美女，笑抽！","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046404","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281180.jpg\/640","id":"wechat_20160513046405","source":"青年文摘","title":"别对自己那么好","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046405","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281177.jpg\/640","id":"wechat_20160513046402","source":"青年文摘","title":"对不起，我从不原谅迟到的人","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046402","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281184.jpg\/640","id":"wechat_20160513046408","source":"RunningMan","title":"中韩跑男化学反应指数分析","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046408","mark":""},{"firstImg":"http:\/\/zxpic.gtimg.com\/infonew\/0\/wechat_pics_-5281172.jpg\/640","id":"wechat_20160513046409","source":"桃桃淘电影","title":"赏色丨“小K”克里斯汀斯图尔特","url":"http:\/\/v.juhe.cn\/weixin\/redirect?wid=wechat_20160513046409","mark":"都爱看"}],"totalPage":25,"ps":20,"pno":1},"error_code":0}'
+					//										var result = window.JSON.parse(o);
+					result.result.list.map(function(content) {
+						//							alert(JSON.stringify(content));
+						var item;
+						item = "<li id='item-id' onclick=\"onClic('" +
+                        content.url + "'  );\"><a><img id='img' src='" + content.firstImg + "'/><h6 class='content'>" + "" + content.title + "</h6><p id='time'>" +
+							content.source + "</p></a></li>";
+						$("#list").append(item);
+					});
+				}
+			</script>
+	</body>
+
+</html>

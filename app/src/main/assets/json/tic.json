@@ -1,0 +1,54 @@
+{
+	"reason": "查询成功",
+	"result": {
+		"title": "上海到西安_火车时刻表及余票查询",
+		"list": [
+			{
+				"train_no": "D306",
+				"m_train_url": "http://j.www.haosou.com/?u=http%3A%2F%2Fm.tieyou.com%2Fcheci_D306%3Futm_source%3D360&m=e202a4&from=juhe&type=train_ab&juid=JHaf54fd4e2a9d0304696d9473fe89e195",
+				"train_type": "动车",
+				"start_station": "上海",
+				"start_station_type": "始",
+				"end_station": "西安北",
+				"end_station_type": "终",
+				"start_time": "22:00",
+				"end_time": "08:36",
+				"run_time": "10小时36分",
+				"run_distance": "",
+				"price_list": [
+					{
+						"price_type": "二等座",
+						"price": "338"
+					}, {
+						"price_type": "软卧",
+						"price": "834"
+					}
+				],
+				"m_chaxun_url": "http://j.www.haosou.com/?u=http%3A%2F%2Fm.tieyou.com%2Fbuy%2Fhome.html%3Ffrom%3D%E4%B8%8A%E6%B5%B7%26to%3D%E8%A5%BF%E5%AE%89%E5%8C%97%26checi%3DD306%26utm_source%3Dh5260%26channel%3Dm&m=2ecd24&from=juhe&type=train_ab&juid=JHaf54fd4e2a9d0304696d9473fe89e195"
+			}, {
+				"train_no": "Z40",
+				"m_train_url": "http://j.www.haosou.com/?u=http%3A%2F%2Fm.tieyou.com%2Fcheci_Z40%3Futm_source%3D360&m=5878ed&from=juhe&type=train_ab&juid=JHaf54fd4e2a9d0304696d9473fe89e195",
+				"train_type": "直特",
+				"start_station": "上海",
+				"start_station_type": "始",
+				"end_station": "西安",
+				"end_station_type": "过",
+				"start_time": "19:40",
+				"end_time": "11:00",
+				"run_time": "15小时20分",
+				"run_distance": "",
+				"price_list": [
+					{
+						"price_type": "硬座",
+						"price": "180.5"
+					}, {
+						"price_type": "硬卧",
+						"price": "351"
+					}
+				],
+				"m_chaxun_url": "http://j.www.haosou.com/?u=http%3A%2F%2Fm.tieyou.com%2Fbuy%2Fhome.html%3Ffrom%3D%E4%B8%8A%E6%B5%B7%26to%3D%E8%A5%BF%E5%AE%89%26checi%3DZ40%26utm_source%3Dh5260%26channel%3Dm&m=cea215&from=juhe&type=train_ab&juid=JHaf54fd4e2a9d0304696d9473fe89e195"
+			}
+		]
+	},
+	"error_code": 0
+}

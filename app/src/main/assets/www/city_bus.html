@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>city</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+		<input type="text" name="text-basic" id="text1" data-clear-btn="true" placeholder="起始">
+		<input type="text" name="text-basic" data-clear-btn="true" id="text2" placeholder="终到">
+		<input type="button" id="my_btn" value="提交"></input>
+		<div id="info" />
+		<script type="text/javascript">
+			$(function(){
+				$('#my_btn').on('click',function(){
+					var start = $('#text1').val();
+					var end = $('#text2').val();
+					if(start.length!=0 && end.length!=0){
+						window.Android.searchBus(start,end);
+					}else{
+						return;
+					}
+				});
+			});
+			function MyRefresh(result){
+					result.result.list.map(function(content) {
+						//							alert(JSON.stringify(content));
+						var item;
+						item = "<input id='item-id'><a><h6 class='content'>"+ JSON.stringify(data) + "</h6></a></li>";
+						$("#info").append(item);
+					});
+			}
+		</script>
+	</body>
+
+</html>

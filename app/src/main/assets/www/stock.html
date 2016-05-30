@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>股票</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div"></div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				window.Android.searchStock();
+			});
+
+			function MyRefresh(result) {
+				result.result.data.map(function(content) {
+					var item;
+					item = "<input id='item-id'><a><h6 class='content'>" + JSON.stringify(content) + "</h6></a></li>";
+					$("#div").append(item);
+				});
+			}
+		</script>
+	</body>
+
+</html>
