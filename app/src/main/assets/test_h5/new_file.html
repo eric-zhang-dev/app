@@ -8,10 +8,11 @@
 		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
 		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
 		<style type="text/css">
-		*{
-			margin: 0;
-			padding: 0;
-		}
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
 			p {
 				text-align: center;
 			}
@@ -26,14 +27,19 @@
 			}
 			
 			.ct_text {
-				width: 45%;
+				width: 40%;
 				display: inline-block;
 				font-size: 14px;
 				padding: 0 10px;
 				box-sizing: border-box;
 			}
-			#la{
+			
+			#la {
 				margin-left: 30px;
+			}
+			
+			#my_img {
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -48,12 +54,13 @@
 					<div class="ct_text">
 						<input type="text" id="my" />
 					</div>
-					<img id="my_img" src="../www/css/zd/images/history.png" />
+					<div id="my_img"><img src="../www/css/zd/images/history.png"></div>
+
 					<div class="ct_text">
 						<input type="text" id="my1" />
 					</div>
 				</div>
-				
+
 				<label id="la">多选</label>
 				<fieldset data-role="controlgroup" data-type="horizontal">
 					<label>anniu<input type="checkbox" /></label>
@@ -91,12 +98,12 @@
 				}
 			});
 		});
-//				jQuery.getJSON("http://op.juhe.cn/onebox/news/words", {
-//					key: 'a847c7e85ab750d5487a7426087cac10'
-//				}, function(tweets) {
-//					// Handle response here 
-//					console.info("Twitter returned: ", tweets);
-//				});
+		//				jQuery.getJSON("http://op.juhe.cn/onebox/news/words", {
+		//					key: 'a847c7e85ab750d5487a7426087cac10'
+		//				}, function(tweets) {
+		//					// Handle response here 
+		//					console.info("Twitter returned: ", tweets);
+		//				});
 		//		$(function() {
 		//					var url = 'http://v.juhe.cn/weather/index';
 		//					$.ajax(url, {
