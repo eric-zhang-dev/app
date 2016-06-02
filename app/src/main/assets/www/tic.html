@@ -7,13 +7,34 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<script src="js/jquery-1.12.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			.ct_ct_text {
+				font-size: 0;
+				text-align: center;
+			}
+			
+			.ct_text {
+				width: 40%;
+				display: inline-block;
+				font-size: 14px;
+				padding: 0 10px;
+				box-sizing: border-box;
+			}
+		</style>
 	</head>
 
 	<body onload="MyRefresh()">
 		<div data-role="page" id="pageone">
-			<div data-role="main" class="ui-content" data-theme="a">
-				<input placeholder="起始" id="station_start"/>
-				<input placeholder="终到" id="station_end" />
+			<div data-role="content" class="ui-content" data-theme="a">
+				<div class="ct_ct_text">
+					<div class="ct_text">
+						<input type="text" placeholder="起始" id="station_start" />
+					</div>
+					<img id="my_img" src="../www/css/zd/images/history.png" />
+					<div class="ct_text">
+						<input type="text" placeholder="终到" id="station_end" />
+					</div>
+				</div>
 				<input type="button" value="搜索" id="search" />
 				<ul data-role="listview" id="list" data-inset="true">
 				</ul>
@@ -34,17 +55,25 @@
 					}
 					window.Android.searchTic(start_station, end_station);
 				});
+				$("#my_img").on("click", function() {
+					start_station = $('#station_start').val();
+					end_station = $('#station_end').val();
+					if (start_station.length != 0 && end_station.length != 0) {
+						$('#station_start').val(end_station);
+						$('#station_end').val(start_station);
+					}
+				});
 			});
 
 			function MyRefresh(result) {
-//				$.getJSON('../json/tic.json', function(result) {
-					result.result.list.map(function(data) {
-//						alert(JSON.stringify(data));
-						var item;
-						item = "<li id='item-id'><a><span class='content'>" + "" + JSON.stringify(data) + "</span></a></li>";
-						$("#list").append(item);
-					});
-//				});
+				//				$.getJSON('../json/tic.json', function(result) {
+				result.result.list.map(function(data) {
+					//						alert(JSON.stringify(data));
+					var item;
+					item = "<li id='item-id'><a><span class='content'>" + "" + JSON.stringify(data) + "</span></a></li>";
+					$("#list").append(item);
+				});
+				//				});
 				//				$.getJSON('../json/tic.json', function(date) {
 				//						result.list.map(function(date) {
 				//							alert("ddddddd");

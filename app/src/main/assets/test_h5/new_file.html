@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			p {
+				text-align: center;
+			}
+			
+			fieldset {
+				text-align: center;
+			}
+			
+			.ct_ct_text {
+				font-size: 0;
+				text-align: center;
+			}
+			
+			.ct_text {
+				width: 45%;
+				display: inline-block;
+				font-size: 14px;
+				padding: 0 10px;
+				box-sizing: border-box;
+			}
+			#la{
+				margin-left: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<p>d</p>
+			</div>
+			<div data-role="content">
+				<div class="ct_ct_text">
+					<div class="ct_text">
+						<input type="text" id="my" />
+					</div>
+					<img id="my_img" src="../www/css/zd/images/history.png" />
+					<div class="ct_text">
+						<input type="text" id="my1" />
+					</div>
+				</div>
+				
+				<label id="la">多选</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<label>anniu<input type="checkbox" /></label>
+					<label>anniu<input type="checkbox" /></label>
+					<label>anniu<input type="checkbox" /></label>
+				</fieldset>
+				单选
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<label><input type="radio" id="1" name="1">qewr</label>
+					<label><input type="radio" name="1" id="2">qwer</label>
+					<label><input type="radio" name="1" id="3">qwer</label>
+				</fieldset>
+
+				<!--<input type="text" />-->
+			</div>
+			<div data-role="footer">
+				<p>s</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			var keys = "a847c7e85ab750d5487a7426087cac10";
+			var url = 'http://op.juhe.cn/onebox/news/words';
+			$.ajax(url, {
+				data: {
+					'key': keys
+				},
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					if (data && data.error_code == '0') {
+						console.log(data.result);
+					}
+				}
+			});
+		});
+//				jQuery.getJSON("http://op.juhe.cn/onebox/news/words", {
+//					key: 'a847c7e85ab750d5487a7426087cac10'
+//				}, function(tweets) {
+//					// Handle response here 
+//					console.info("Twitter returned: ", tweets);
+//				});
+		//		$(function() {
+		//					var url = 'http://v.juhe.cn/weather/index';
+		//					$.ajax(url, {
+		//						data: {
+		//							'cityname': '襄阳',
+		//							'dtype': 'jsonp',
+		//							'key': 'xxxx',
+		//							'_': new Date().getTime()
+		//						},
+		//						dataType: 'jsonp',
+		//						crossDomain: true,
+		//						success: function(data) {
+		//							if (data && data.resultcode == '200') {
+		//								console.log(data.result.today);
+		//							}
+		//						}
+		//					});
+	</script>
+
+</html>

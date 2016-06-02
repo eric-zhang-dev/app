@@ -12,7 +12,7 @@
 	<body onload="MyRefresh()">
 		<div data-role="page" id="pageone">
 			<div data-role="main" class="ui-content" data-theme="a">
-				<input placeholder="输入车次" id="station_num"/>
+				<input placeholder="输入车次" id="station_num" />
 				<input type="button" value="搜索" id="search" />
 				<ul data-role="listview" id="list" data-inset="true">
 				</ul>
@@ -31,11 +31,20 @@
 			});
 
 			function MyRefresh(result) {
-					result.result.list.price_list.item.map(function(data) {
-						var item;
-						item = "<li id='item-id'><a><span class='content'>" + "" + JSON.stringify(data) + "</span></a></li>";
-						$("#list").append(item);
-					});
+				var items = "<li><p class='content'>" + "车次:" + result.result.list.train_no + "</p>" +
+					"<p class='content'>" + "运行时间:" + result.result.list.run_time + "</p>" +
+					"<p class='content'>" + "里程:" + result.result.list.run_distance + "</p>" +
+					"<p class='content'>" + "发车时间:" + result.result.list.start_time + "</p>" +
+					"<p class='content'>" + "到站时间:" + result.result.list.end_time + "</p>" +
+					"<p class='content'>" + "类型:" + result.result.list.train_type + "</p>" +
+					"<p class='content'>" + "终到站:" + result.result.list.end_station + "</p>" +
+					"<p class='content'>" + "始发站:" + result.result.list.start_station + "</p><ul data-role='listview' id='lists' data-inset='true'></ul></li>";
+				$("#list").append(items);
+				result.result.list.price_list.item.map(function(data) {
+					var item;
+					item = "<li id='item-id'><a><span class='content'>" + "" + data.price_type + "</span><span class='content'>" + ":价格：" + data.price + "</span></a></li>";
+					$("#lists").append(item);
+				});
 			};
 		</script>
 	</body>

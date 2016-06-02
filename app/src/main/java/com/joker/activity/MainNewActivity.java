@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.tt.MaActivity;
 import com.joker.R;
 import com.joker.html5.Html5;
 
@@ -17,10 +20,18 @@ import com.joker.html5.Html5;
  */
 public class MainNewActivity extends AppCompatActivity{
     private WebView webView;
+    private Button button;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment);
+        button  = (Button) findViewById(R.id.btn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainNewActivity.this,MaActivity.class));
+            }
+        });
         initView();
     }
     private void initView() {

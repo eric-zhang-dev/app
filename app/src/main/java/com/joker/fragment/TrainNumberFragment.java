@@ -1,6 +1,5 @@
 package com.joker.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,7 +15,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.joker.R;
-import com.joker.activity.DActivity;
 import com.joker.html5.Html5;
 import com.joker.http.HttpGet;
 

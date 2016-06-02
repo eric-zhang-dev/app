@@ -30,6 +30,7 @@
         <activity
             android:name=".activity.ChatActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"></activity>
+        <activity android:name="com.example.tt.MaActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
