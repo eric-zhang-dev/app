@@ -37,7 +37,7 @@ public class TrainNumberFragment extends Fragment {
     @JavascriptInterface
     private void initView() {
         webView = (WebView) view.findViewById(R.id.my_web);
-        webView.loadUrl(Html5.TIC_NUM_HTML);
+        webView.loadUrl(Html5.TIC_NUM_HTML+"?type=1");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAllowFileAccessFromFileURLs(true);

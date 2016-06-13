@@ -1,5 +1,6 @@
 package com.joker.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.joker.R;
+import com.joker.activity.DActivity;
+import com.joker.activity.UrlActivity;
 import com.joker.html5.Html5;
 import com.joker.http.HttpGet;
 
@@ -57,7 +60,13 @@ public class TrainStationFragment extends Fragment {
             }
         });
     }
-
+    @JavascriptInterface
+    public void detail(String content){
+        Intent intent = new Intent(getActivity(), UrlActivity.class);
+        intent.putExtra("content",content);
+        intent.putExtra("type","1");
+        startActivity(intent);
+    }
     @android.webkit.JavascriptInterface
     public void searchTic(final String startNum, final String endNum) {
         this.startNum = startNum;
@@ -89,8 +98,4 @@ public class TrainStationFragment extends Fragment {
             }
         }
     };
-//    @JavascriptInterface
-//    public void detial(String url) {
-//        startActivity(new Intent(getActivity(), DActivity.class).putExtra("url", url));
-//    }
 }

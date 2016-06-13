@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>周公解梦</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			/*#b_div {
+				text-align: -moz-center;
+			}*/
+			
+			#list {
+				list-style-type: none;
+				padding: 0;
+			}
+			
+			#item {
+				border: 1px dotted #6699cc;
+				border-radius: 10px;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.content {
+				font-size: 12px;
+				color: #5b2f32;
+				margin: 0;
+				padding-left: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="b_div" data-role="page">
+			<div data-role="content" class="ui-content">
+				<input type="text" placeholder="输入关键字" id="tv_content" />
+				<button class="ui-btn ui-corner-all" id="search_dream">搜索</button>
+				<ul data-role="listview" id="list" data-inset="true">
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).on("pageinit", function() {
+				bindEvent();
+			});
+			var bindEvent = function() {
+				$("#search_dream").on("click", click);
+				$("#list").on("click","a", itemclick);
+			};
+			var click = function() {
+				var v = $("#tv_content").val();
+				if (v) {
+					window.Android.searchDream(v);
+				} else {
+					alert("输入内容");
+				}
+			};
+			var itemclick = function(){
+				var id = $(this).attr("itemid");
+				window.Android.DreamDetail(id);
+			};
+			var MyRefresh = function(result) {
+				if (result.length != 0 && $("#list").length != 0) {
+					$("#list").empty();
+				}
+				result.result.map(function(content) {
+					var item;
+					item = "<li id='item'><a itemid='"+content.id+"'><h6 class='content'>" + "" + content.title + "</h6><span id='time'>" +
+						content.des + "</span></a></li>";
+					$("#list").append(item);
+				});
+			};
+		</script>
+	</body>
+
+</html>

@@ -38,21 +38,54 @@
 		</ul>
 	</body>
 	<script type="text/javascript">
-		$(function() {
-			window.Android.hot();
+		var url = "http://op.juhe.cn/onebox/news/words";
+		var datas = {};
+		datas.key = "a847c7e85ab750d5487a7426087cac10";
+		$(document).on("pageinit", function() {
+			bindEvent();
 		});
-
-		function MyRefresh(result) {
+		var bindEvent = function() {
+			getData();
+			$("#list").on("click", "a", listItemClick);
+		};
+		var getData = function() {
+			$.ajax(url, {
+				data: datas,
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					if (data) {
+						refreshlist(data);
+					}
+				}
+			});
+		};
+		var refreshlist = function(result) {
 			result.result.map(function(content) {
 				var item;
-				item = "<li id='item-id' onclick=\"onClic('" +
-					content + "'  );\"><a><h6 class='content'>" + content + "</h6></a></li>";
+				item = "<li id='item-id'><a content='" + content + "'><h6 class='content'>" + content + "</h6></a></li>";
 				$("#list").append(item);
 			});
-		}
-		function onClic(content){
+		};
+		var listItemClick = function() {
+			var content = $(this).attr("content");
 			window.Android.detial(content);
-		}
+		};
+		//		$(function() {
+		//			window.Android.hot();
+		//		});
+		//
+		//		function MyRefresh(result) {
+		//			result.result.map(function(content) {
+		//				var item;
+		//				item = "<li id='item-id' onclick=\"onClic('" +
+		//					content + "'  );\"><a><h6 class='content'>" + content + "</h6></a></li>";
+		//				$("#list").append(item);
+		//			});
+		//		}
+		//		function onClic(content){
+		//			window.Android.detial(content);
+		//		}
 	</script>
 
 </html>

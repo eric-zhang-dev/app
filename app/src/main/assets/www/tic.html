@@ -23,9 +23,9 @@
 		</style>
 	</head>
 
-	<body onload="MyRefresh()">
+	<body>
 		<div data-role="page" id="pageone">
-			<div data-role="content" class="ui-content" data-theme="a">
+			<div role="main" class="ui-content">
 				<div class="ct_ct_text">
 					<div class="ct_text">
 						<input type="text" placeholder="起始" id="station_start" />
@@ -41,38 +41,69 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			$(function() {
-				var start_station;
-				var end_station;
-				$('#search').click(function() {
-					start_station = $('#station_start').val();
-					end_station = $('#station_end').val();
-					if (start_station.length == 0) {
-						return;
-					}
-					if (end_station.length == 0) {
-						return;
-					}
-					window.Android.searchTic(start_station, end_station);
-				});
-				$("#my_img").on("click", function() {
-					start_station = $('#station_start').val();
-					end_station = $('#station_end').val();
-					if (start_station.length != 0 && end_station.length != 0) {
-						$('#station_start').val(end_station);
-						$('#station_end').val(start_station);
-					}
-				});
+			var datas = {};
+			var start_station;
+			var end_station;
+			datas.key = "793389e3ad51445010a7b5608309735f";
+			var url = "http://op.juhe.cn/onebox/train/query_ab.php";
+			$(document).on("pageinit", function() {
+				bindEvent();
 			});
-
-			function MyRefresh(result) {
-				//				$.getJSON('../json/tic.json', function(result) {
-				result.result.list.map(function(data) {
-					//						alert(JSON.stringify(data));
-					var item;
-					item = "<li id='item-id'><a><span class='content'>" + "" + JSON.stringify(data) + "</span></a></li>";
-					$("#list").append(item);
+			var bindEvent = function() {
+				$("#search").on("click", searchInfo);
+				$("#my_img").on("click", changeInfo);
+				$("#list").on("click", "a", listItemClick);
+			};
+			var listItemClick = function(){
+				var item = $(this).attr("dataInfo");
+				window.Android.detail(item);
+			};
+			var changeInfo = function() {
+				start_station = $('#station_start').val();
+				end_station = $('#station_end').val();
+				if (start_station && end_station) {
+					$('#station_start').val(end_station);
+					$('#station_end').val(start_station);
+				} else {
+					alert("weikong");
+				}
+			};
+			var searchInfo = function() {
+				start_station = $('#station_start').val();
+				end_station = $('#station_end').val();
+				if (!start_station) {
+					return;
+				}
+				if (!end_station) {
+					return;
+				}
+				datas.from = start_station;
+				datas.to = end_station;
+				$.ajax(url, {
+					data: datas,
+					dataType: 'jsonp',
+					crossDomain: true,
+					success: function(data) {
+						if (data) {
+							refreshlist(data);
+						}
+					}
 				});
+			};
+			var refreshlist = function(result) {
+					var arr = [];
+					result.result.list.map(function(listItem) {
+						var item = '<li><a href="#" dataInfo="' + listItem.train_no + '">' +
+							'<h2>' + listItem.train_no + '</h2>' +
+							'<p>' + listItem.start_station + '-' + listItem.end_station + '</p>' +
+							'<p>' + listItem.start_time+"开"+listItem.end_time+"到&nbsp;&nbsp;"+listItem.train_type + '</p>' +
+							'<p class="ui-li-aside">' + "运行" + listItem.run_time + '</p>' +
+							'</a></li>';
+						arr.push(item);
+					});
+					$("#list").html(arr.join(""));
+					$("#list").listview("refresh");
+				}
 				//				});
 				//				$.getJSON('../json/tic.json', function(date) {
 				//						result.list.map(function(date) {
@@ -85,7 +116,6 @@
 				//							$("#list").append(item);
 				//						});
 				//				}
-			};
 		</script>
 	</body>
 

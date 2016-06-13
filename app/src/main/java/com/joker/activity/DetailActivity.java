@@ -216,4 +216,11 @@ public class DetailActivity extends AppCompatActivity {
             }
         }
     };
+    @JavascriptInterface
+    public void DreamDetail(String id){
+        Intent intent = new Intent(this,UrlActivity.class);
+        intent.putExtra("content",id);
+        intent.putExtra("type","2");
+        startActivity(intent);
+    }
 }

@@ -46,8 +46,7 @@
 				height: 50%;*/
 			}
 			
-			#new_input,
-			#my_btn {
+			#show_or_hide {
 				margin: 10px;
 				display: none;
 			}
@@ -55,33 +54,63 @@
 	</head>
 
 	<body>
-		<input id="new_input" type="text" placeholder="输入关键字" />
-		<button id="my_btn">搜索</button>
-		<ul data-role="listview" id="list" data-inset="true">
-		</ul>
+		<div data-role="page">
+			<div role="main" class="ui-content">
+				<div id="show_or_hide">
+					<input id="new_input" type="text" placeholder="输入关键字" />
+					<button id="my_btn">搜索</button>
+				</div>
+				<ul data-role="listview" id="list" data-inset="true">
+				</ul>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript">
 		var type = 0;
-		$(function() {
-			type = getParam("type")==null?0:getParam("type");
+		var url = "http://op.juhe.cn/onebox/news/query";
+		var datas = {};
+		var ipt;
+		datas.key = "a847c7e85ab750d5487a7426087cac10";
+		$(document).on("pageinit", function() {
+			initView();
+			bindEvent();
+		});
+		var initView = function() {
+			type = getParam("type") == null ? 0 : getParam("type");
+			ipt = getParam("p") == null ? "" : getParam("p");
 			if (type == 0) {
-				$("#new_input").hide();
-				$("#my_btn").hide();
-				window.Android.hot();
+				$("#show_or_hide").hide();
+				initData();
 			} else {
-				$("#new_input").show();
-				$("#my_btn").show();
+				$("#show_or_hide").show();
 			}
-			$('#my_btn').click(function() {
-				var ipt = $('#new_input').val().trim();
-				if (ipt.length != 0) {
-					$("#list").empty(); //清空列表
-					window.Android.news(ipt);
+		};
+		var bindEvent = function() {
+			$("#my_btn").on("click", btn);
+		};
+		var btn = function() {
+			ipt = $('#new_input').val().trim();
+			if (ipt.length != 0) {
+				$("#list").empty(); //清空列表
+				initData();
+			}
+		};
+		var initData = function() {
+			if (ipt) {
+				datas.q = ipt;
+			}
+			$.ajax(url, {
+				data: datas,
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					if (data) {
+						refreshlist(data);
+					}
 				}
 			});
-		});
-
-		function MyRefresh(result) {
+		};
+		var refreshlist = function(result) {
 			result.result.map(function(content) {
 				var item;
 				item = "<li id='item-id' onclick=\"onClic('" +
@@ -90,11 +119,40 @@
 					content.pdate_src + "</p></a></li>";
 				$("#list").append(item);
 			});
-		}
-
-		function onClic(url) {
-			window.Android.detial(url);
-		}
+		};
+		//		$(function() {
+		//			type = getParam("type")==null?0:getParam("type");
+		//			if (type == 0) {
+		//				$("#new_input").hide();
+		//				$("#my_btn").hide();
+		//				window.Android.hot();
+		//			} else {
+		//				$("#new_input").show();
+		//				$("#my_btn").show();
+		//			}
+		//			$('#my_btn').click(function() {
+		//				var ipt = $('#new_input').val().trim();
+		//				if (ipt.length != 0) {
+		//					$("#list").empty(); //清空列表
+		//					window.Android.news(ipt);
+		//				}
+		//			});
+		//		});
+		//
+		//		function MyRefresh(result) {
+		//			result.result.map(function(content) {
+		//				var item;
+		//				item = "<li id='item-id' onclick=\"onClic('" +
+		//					content.url + "'  );\"><a><h6 class='content'>" + content.title + "</h6><h6 class='content'>" + content.content +
+		//					"</h6> <img id='img' src='" + content.img + "'/><p id='time'>" +
+		//					content.pdate_src + "</p></a></li>";
+		//				$("#list").append(item);
+		//			});
+		//		}
+		//
+		//		function onClic(url) {
+		//			window.Android.detial(url);
+		//		}
 	</script>
 	<script type="text/javascript" src="js/params.js"></script>
 

@@ -43,6 +43,8 @@ public class MainNewActivity extends AppCompatActivity{
             Intent p = new Intent(this,DetailActivity.class);
             p.putExtra("type",type);
             startActivity(p);
+        }else {
+            startActivity(new Intent(MainNewActivity.this,DActivity.class).putExtra("url","file:///android_asset/test_h5/index.html"));
         }
     }
 }

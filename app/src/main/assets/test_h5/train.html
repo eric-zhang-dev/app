@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
+		<title>测试</title>
+	</head>
+
+	<body>
+		<div data-role="page" id="index">
+			<div data-role="header" data-position="fixed">
+				<h1>我是标题</h1>
+			</div>
+			<div role="main" class="ui-content">
+				<table data-role="table" data-mode="reflow" class="ui-responsive">
+					<thead>
+						<tr>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+					</tbody>
+				</table>
+				<form>
+					<div class="ui-field-contain">
+						<label>发车站</label>
+						<input type="text" id="startstation" />
+					</div>
+					<div class="ui-field-contain">
+						<label>到达站</label>
+						<input type="text" id="endstation" />
+					</div>
+					<div class="ui-field-contain">
+						<label>车次</label>
+						<input type="text" id="search-no" />
+					</div>
+					<a class="ui-btn" id="search-submit">搜索</a>
+				</form>
+				<ul data-role="listview" data-inset="true" id="list">
+					<!--<li>
+						<a href="#">
+							<h2>G1次</h2>
+							<p>北京-上海</p>
+							<p>用时：4：48</p>
+							<p class="ui-li-aside">9:00 开</p>
+						</a>
+					</li>-->
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-icon="camera">1</a></li>
+						<li><a href="#" data-icon="camera">2</a></li>
+						<li><a href="#" data-icon="camera">3</a></li>
+						<li><a href="#" data-icon="camera">4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="index2">
+			<div data-role="header" data-position="fixed">
+				<h1>我是标题</h1>
+			</div>
+			<div role="main" class="ui-content">
+				<table data-role="table" data-mode="reflow" class="ui-responsive">
+					<thead>
+						<tr>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+					</tbody>
+				</table>
+			
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" data-icon="camera">1</a></li>
+						<li><a href="#" data-icon="camera">2</a></li>
+						<li><a href="#" data-icon="camera">3</a></li>
+						<li><a href="#" data-icon="camera">4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			var url1 = "http://op.juhe.cn/onebox/train/query?key=793389e3ad51445010a7b5608309735f&train=g1";
+			var url2 = "http://op.juhe.cn/onebox/train/query_ab.php?key=793389e3ad51445010a7b5608309735f&from=%E4%B8%8A%E6%B5%B7&to=%E8%A5%BF%E5%AE%89";
+			var getInfoList = function() {
+				if ($("#search-no").val() || $("#startstation").val() && $("#endstation").val()) {
+					var searthBtn = $(this);
+					//					searthBtn.button("option","disabled",true);
+					$.mobile.loading("show");
+					var data = {};
+					var url = url1;
+					if (!$("#search-no").val()) {
+						url = url2;
+					} else {
+						data.key = "793389e3ad51445010a7b5608309735f";
+						data.train = "G1";
+					}
+					$.ajax(url, {
+						data: {
+							//						'key': keys
+						},
+						dataType: 'jsonp',
+						crossDomain: true,
+						success: function(data) {
+							if (data && data.error_code == '0') {
+								console.log(JSON.stringify(data));
+								var list = $("#list");
+								var arr = [];
+								data.result.list.map(function(listItem) {
+									var html = '<li><a href="#" data-no="' + listItem.train_no + '">' +
+										'<h2>' + listItem.train_no + '</h2>' +
+										'<p>' + listItem.start_station + '-' + listItem.end_station + '</p>' +
+										'<p>' + listItem.train_type + '</p>' +
+										'<p class="ui-li-aside">' + listItem.run_time + '</p>' +
+										'</a></li>';
+									arr.push(html);
+								});
+								if (arr.length > 0) {
+									list.html(arr.join(""));
+									list.listview("refresh");
+									$.mobile.loading("hide");
+								}
+							}
+						}
+					});
+				} else {
+					alert("没查到");
+				}
+			};
+			var isAjax = false;
+			var getListItem = function() {
+				var code = $(this).attr("data-no");
+				alert(code);
+				if (isAjax) return;
+				isAjax = true;
+				setTimeout(function() {
+					isAjax = false;
+				}, 2000);
+			};
+			var bindEvent = function() {
+				$("#search-submit").on("click", getInfoList);
+				$("#list").on("click", "a", getListItem);
+			};
+			$(document).on("pageinit", function() {
+				bindEvent();
+			});
+		</script>
+	</body>
+
+</html>

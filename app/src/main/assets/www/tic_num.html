@@ -7,46 +7,143 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<script src="js/jquery-1.12.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			#search-number {
+				display: none;
+			}
+		</style>
 	</head>
 
-	<body onload="MyRefresh()">
+	<body>
 		<div data-role="page" id="pageone">
-			<div data-role="main" class="ui-content" data-theme="a">
-				<input placeholder="输入车次" id="station_num" />
-				<input type="button" value="搜索" id="search" />
+			<div role="main" class="ui-content">
+				<h2></h2>
+				<div id="search-number">
+					<input placeholder="输入车次" id="station_num" />
+					<input type="button" value="搜索" id="search" /></div>
+				<table data-role="table" data-mode="reflow" class="ui-responsive">
+					<thead>
+						<tr>
+							<th>车次</th>
+							<th>类型</th>
+							<th>起始</th>
+							<th>终到</th>
+							<th>起始时间</th>
+							<th>结束时间</th>
+							<th>用时</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 				<ul data-role="listview" id="list" data-inset="true">
 				</ul>
+				<!--</div>-->
+				<!--<div data-role="main" class="ui-content" data-theme="a">
+				<input placeholder="输入车次" id="station_num" />
+				<input type="button" value="搜索" id="search" />
+				
+			</div>-->
 			</div>
-		</div>
-		<script type="text/javascript">
-			$(function() {
-				var station_num;
-				$('#search').click(function() {
-					station_num = $('#station_num').val();
-					if (station_num.length == 0) {
-						return;
+			<script type="text/javascript">
+				var type = 0;
+				var code_number;
+				var datas = {};
+				datas.key = "793389e3ad51445010a7b5608309735f";
+				var url = "http://op.juhe.cn/onebox/train/query";
+				$(document).on("pageinit", function() {
+					//					initdata();
+					initView();
+					$("#search-number").on("click", click);
+				});
+				var click = function() {
+					if($("#station_num").val()){
+						code_number = $("#station_num").val();
+						loadData();
 					}
-					window.Android.searchTic(station_num);
-				});
-			});
+				};
+				var initView = function() {
+					type = getParam("type") == null ? 0 : getParam("type");
+					code_number = getParam("p") == null ? "" : getParam("p");
+					if (type == 0) {
+						$("#search-number").hide();
+						initdata();
+					} else {
+						$("#search-number").show();
+					}
+				};
+				var initdata = function() {
+					//					code_number = getParam("train");
+					if (code_number) {
+						$("#pageone").find(".ui-content h2").first().html(code_number + "次");
+					} else {
+						$("#pageone").find(".ui-content h2").first().html("");
+					}
 
-			function MyRefresh(result) {
-				var items = "<li><p class='content'>" + "车次:" + result.result.list.train_no + "</p>" +
-					"<p class='content'>" + "运行时间:" + result.result.list.run_time + "</p>" +
-					"<p class='content'>" + "里程:" + result.result.list.run_distance + "</p>" +
-					"<p class='content'>" + "发车时间:" + result.result.list.start_time + "</p>" +
-					"<p class='content'>" + "到站时间:" + result.result.list.end_time + "</p>" +
-					"<p class='content'>" + "类型:" + result.result.list.train_type + "</p>" +
-					"<p class='content'>" + "终到站:" + result.result.list.end_station + "</p>" +
-					"<p class='content'>" + "始发站:" + result.result.list.start_station + "</p><ul data-role='listview' id='lists' data-inset='true'></ul></li>";
-				$("#list").append(items);
-				result.result.list.price_list.item.map(function(data) {
-					var item;
-					item = "<li id='item-id'><a><span class='content'>" + "" + data.price_type + "</span><span class='content'>" + ":价格：" + data.price + "</span></a></li>";
-					$("#lists").append(item);
-				});
-			};
-		</script>
+					loadData();
+				};
+				var loadData = function() {
+					datas.train = code_number;
+					$.ajax(url, {
+						data: datas,
+						dataType: 'jsonp',
+						crossDomain: true,
+						success: function(data) {
+							if (data) {
+								refreshlist(data);
+							}
+						}
+					});
+				};
+				var refreshlist = function(result) {
+					var tbody = $("#pageone").find(".ui-content tbody");
+					tbody.html("");
+					var tr = $("<tr></tr>");
+					var item = '<td>' + result.result.list.train_no + '</td>' +
+						'<td>' + result.result.list.train_type + '</td>' +
+						'<td>' + result.result.list.start_station + '</td>' +
+						'<td>' + result.result.list.end_station + '</td>' +
+						'<td>' + result.result.list.start_time + '</td>' +
+						'<td>' + result.result.list.end_time + '</td>' +
+						'<td>' + result.result.list.run_time + '</td>';
+					tr.html(item);
+					tbody.append(tr);
+					result.result.list.price_list.item.map(function(data) {
+						var item;
+						item = "<li id='item-id'><a><span class='content'>" + "" + data.price_type + "</span><span class='content'>" + ":价格：" + data.price + "</span></a></li>";
+						$("#list").append(item);
+					});
+					//					$.mobile.changePage("#pageone");//切换页面
+				};
+				//			$(function() {
+				//				var station_num;
+				//				$('#search').click(function() {
+				//					station_num = $('#station_num').val();
+				//					if (station_num.length == 0) {
+				//						return;
+				//					}
+				//					window.Android.searchTic(station_num);
+				//				});
+				//			});
+				//
+				//			function MyRefresh(result) {
+				//				var items = "<li><p class='content'>" + "车次:" + result.result.list.train_no + "</p>" +
+				//					"<p class='content'>" + "运行时间:" + result.result.list.run_time + "</p>" +
+				//					"<p class='content'>" + "里程:" + result.result.list.run_distance + "</p>" +
+				//					"<p class='content'>" + "发车时间:" + result.result.list.start_time + "</p>" +
+				//					"<p class='content'>" + "到站时间:" + result.result.list.end_time + "</p>" +
+				//					"<p class='content'>" + "类型:" + result.result.list.train_type + "</p>" +
+				//					"<p class='content'>" + "终到站:" + result.result.list.end_station + "</p>" +
+				//					"<p class='content'>" + "始发站:" + result.result.list.start_station + "</p><ul data-role='listview' id='lists' data-inset='true'></ul></li>";
+				//				$("#list").append(items);
+				//				result.result.list.price_list.item.map(function(data) {
+				//					var item;
+				//					item = "<li id='item-id'><a><span class='content'>" + "" + data.price_type + "</span><span class='content'>" + ":价格：" + data.price + "</span></a></li>";
+				//					$("#lists").append(item);
+				//				});
+				//			};
+			</script>
+			<script type="text/javascript" src="js/params.js"></script>
 	</body>
 
 </html>

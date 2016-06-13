@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../www/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../www/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../www/js/jquery.mobile-1.4.5.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#my_p {
+				border: none;
+				background-color: #7FFF00;
+				color: white;
+				padding: 12px 20px;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				border: 1px dotted #000000;
+			}
+			
+			#my_p:hover {
+				background-color: #0000FF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div data-role="page">
+			<div data-role="content">
+				<form>
+					<input type="file" id="flie" />
+					<input type="checkbox" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1">
+					<button id="anniu">按钮</button>
+				</form>
+				<input data-type="search" id="filterControlgroup-input">
+				<input type="text" data-role="date" data-inline="true">
+				<form>
+					<input id="filterTable-input" data-type="search">
+				</form>
+				<table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+
+					<thead>
+
+						<tr>
+							<th>a</th>
+							<th>a</th>
+							<th>a</th>
+							<th>a</th>
+							<th>a</th>
+							<!--
+							<th data-priority="1">Rank</th>
+
+							<th data-priority="persist">Movie Title</th>
+
+							<th data-priority="2">Year</th>
+
+							<th data-priority="3"><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+
+							<th data-priority="4">Reviews</th>-->
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<tr>
+
+							<th>1</th>
+
+							<td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a></td>
+
+							<td>1941</td>
+
+							<td>100%</td>
+
+							<td>74</td>
+						</tr>
+
+						<tr>
+
+							<th>2</th>
+
+							<td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a></td>
+
+							<td>1942</td>
+
+							<td>97%</td>
+
+							<td>64</td>
+						</tr>
+
+						<tr>
+
+							<th>3</th>
+
+							<td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a></td>
+
+							<td>1972</td>
+
+							<td>97%</td>
+
+							<td>87</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div>
+			<ul class="my_ul">
+
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../www/js/httpget.js"></script>
+	<script type="text/javascript">
+		var datas = {};
+		datas.key = "793389e3ad51445010a7b5608309735f";
+		datas.train = "G1";
+		var url = "http://op.juhe.cn/onebox/train/query";
+		$(document).on("pageinit", function() {
+			bindEvent();
+			//			alert(JSON.stringify(d));
+			$.ajax(url, {
+				data: datas,
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					if (data) {
+						//						alert(JSON.stringify(datas));
+						console.log(JSON.stringify(data));
+					}
+				}
+			});
+		});
+		var bindEvent = function() {
+			$("#anniu").on("click", fileBtnClick)
+		};
+		var fileBtnClick = function() {
+			console.log($("#flie").val());
+		};
+		//		$(document).ready(function() {
+		//			for (var i = 0; i < 9; i++) {
+		//				var item = "<li id='my_li'><p id='my_p'>adsasfa" + i + "</p></li>";
+		//				$(".my_ul").append(item);
+		//			}
+		//			getdada();
+		//		});
+		//		var getdada = function() {
+		//		};
+	</script>
+
+</html>

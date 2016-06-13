@@ -8,7 +8,7 @@ public class Html5 {
     public static String WECHAT_HTML = "file:///android_asset/www/wechat.html";//微信精选
     public static String JOKER_HTML = "file:///android_asset/www/joker.html";//笑话
     public static String GIF_HTML = "file:///android_asset/www/gif.html";//gif笑话
-    public static String DREAM_HTML = "file:///android_asset/www/zhougongjiemeng.html";//gif笑话
+    public static String DREAM_HTML = "file:///android_asset/www/dream.html";//gif笑话
     public static String TIC_HTML = "file:///android_asset/www/tic.html";//火车
     public static String BUS_HTML = "file:///android_asset/www/city_bus.html";//汽车
     public static String P_BUS_HTML = "file:///android_asset/www/bus.html";//公交
@@ -21,4 +21,5 @@ public class Html5 {
     public static String NEWS = "file:///android_asset/www/news.html";
     public static String SEARCH_NEWS = "file:///android_asset/www/search_news.html";
     public static String TIC_NUM_HTML = "file:///android_asset/www/tic_num.html";
+    public static String DREAM_NUM_HTML = "file:///android_asset/www/dream_detail.html";
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>zgjmxq</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		#list {
+			list-style-type: none;
+			padding: 0;
+		}
+	</style>
+
+	<body>
+		<div data-role="page">
+			<div role="main" class="ui-content">
+				<h4 id="title"></h4>
+				<p id="des"></p>
+				<ul data-role="listview" id="list" data-inset="true">
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	$(document).on("pageinit",function(){
+		window.Android.load();
+	});
+		function MyRefresh(result) {
+			$("#title").html(result.result.title);
+			$("#des").html(result.result.des);
+			result.result.list.map(function(content) {
+				var item;
+				item = "<li id='item'><a><span id='time'>" +content + "</span></a></li>";
+				$("#list").append(item);
+			});
+		};
+	</script>
+
+</html>

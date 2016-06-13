@@ -41,26 +41,55 @@
 			#my_img {
 				text-align: center;
 			}
+			#myyyy{
+				background-image: url(../www/img/www.GIF);
+				background-repeat: no-repeat;
+				background-position: center bottom;
+				background-attachment: fixed;
+			}
 		</style>
 	</head>
 
 	<body>
-		<div data-role="page">
+		<div id="myyyy" data-role="page" >
 			<div data-role="header">
 				<p>d</p>
 			</div>
-			<div data-role="content">
-				<div class="ct_ct_text">
-					<div class="ct_text">
-						<input type="text" id="my" />
-					</div>
-					<div id="my_img"><img src="../www/css/zd/images/history.png"></div>
+			<div class="ct_ct_text">
+				<div class="ct_text">
+					<input type="date" id="my" />
+				</div>
+				<img src="../www/css/zd/images/history.png">
 
-					<div class="ct_text">
-						<input type="text" id="my1" />
+				<div class="ct_text">
+					<input type="datetime" id="my1" />
+				</div>
+			</div>
+
+			<div data-role="content">
+				<div data-role="collapsibleset">
+					<div data-role="collapsible">
+						<h1>点击我 - 我可以折叠！</h1>
+						<p>我是可折叠的内容。</p>
+					</div>
+					<div data-role="collapsible" data-iconpos="right">
+						<h1>点击我 - 我可以折叠！</h1>
+						<p>我是可折叠的内容。</p>
+					</div>
+					<div data-role="collapsible">
+						<h1>点击我 - 我可以折叠！</h1>
+						<p>我是可折叠的内容。</p>
+					</div>
+					<div data-role="collapsible">
+						<h1>点击我 - 我可以折叠！</h1>
+						<p>我是可折叠的内容。</p>
 					</div>
 				</div>
-
+				<div data-role="collapsible" data-collapsed="false">
+					<h1>点击我 - 我可以折叠！</h1>
+					<p>我是可折叠的内容。</p>
+					<p>我是可折叠的内容。</p>
+				</div>
 				<label id="la">多选</label>
 				<fieldset data-role="controlgroup" data-type="horizontal">
 					<label>anniu<input type="checkbox" /></label>
@@ -73,7 +102,10 @@
 					<label><input type="radio" name="1" id="2">qwer</label>
 					<label><input type="radio" name="1" id="3">qwer</label>
 				</fieldset>
-
+				<p>
+					<cite>《富春山居图》</cite>由黄公望始画于至正七年(1347)，于至正十年完成。
+				</p>
+				<input type="range" value="50" min="0" max="100" data-popup-enabled="true" />
 				<!--<input type="text" />-->
 			</div>
 			<div data-role="footer">
@@ -93,7 +125,7 @@
 				crossDomain: true,
 				success: function(data) {
 					if (data && data.error_code == '0') {
-						console.log(data.result);
+//						console.log(data.result);
 					}
 				}
 			});
