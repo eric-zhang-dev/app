@@ -10,20 +10,42 @@
 	</head>
 
 	<body>
-		<div id="div"></div>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				window.Android.searchStock();
-			});
-
-			function MyRefresh(result) {
-				result.result.data.map(function(content) {
-					var item;
-					item = "<input id='item-id'><a><h6 class='content'>" + JSON.stringify(content) + "</h6></a></li>";
-					$("#div").append(item);
-				});
-			}
-		</script>
+		<div data-role="page">
+			<div role="main" class="ui-content">
+				<ul data-role="listview" id="list">
+				</ul>
+			</div>
+		</div>
 	</body>
+	<script type="text/javascript">
+		var type = 1;
+		$(document).on("pageinit", function() {
+			$("#list").on("click", "a", click);
+			window.Android.searchStock(type);
+		});
+		var click = function() {
+
+		};
+		function MyRefresh(result) {
+			result.result.data.map(function(content) {
+				var item = '<li><a><h4>名称:"' + content.name + '"</h4>' +
+					'<p>代码:"' + content.symbol + '"</p>' +
+					'<p>最新价:"' + content.trade + '"</p>' +
+					'<p>涨跌额:"' + content.pricechange + '"</p>' +
+					'<p>涨跌幅:"' + content.changepercent + '"</p>' +
+					'<p>买入:"' + content.buy + '"</p>' +
+					'<p>卖出:"' + content.sell + '"</p>' +
+					'<p>昨收:"' + content.settlement + '"</p>' +
+					'<p>今开:"' + content.open + '"</p>' +
+					'<p>最高:"' + content.high + '"</p>' +
+					'<p>最低:"' + content.low + '"</p>' +
+					'<p>成交量:"' + content.volume + '"</p>' +
+//					'<p>成效额:"' + content.amount '"</p>' +
+					'<p>简码:"' + content.code + '"</p>' +
+					'<p>时间:"' + content.ticktime + '"</p></a></li>';
+				$("#list").append(item);
+			});
+		};
+	</script>
 
 </html>

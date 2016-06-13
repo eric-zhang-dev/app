@@ -5,23 +5,172 @@
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 		<title>星座运势</title>
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="js/iscroll/scrollbar.css" />
 		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+		<!--<script type="text/javascript" src="js/iscroll/iscroll.js"></script>
+		<script type="text/javascript" src="js/iscroll/iscroll-4.2.5.js"></script>-->
+		<style type="text/css">
+			li {
+				float: left;
+				position: relative;
+			}
+			
+			#item {
+				padding: 20px;
+				margin: 1px;
+				font-size: 14px;
+				background-color: wheat;
+			}
+		</style>
 	</head>
 
 	<body>
-		<div id="div"></div>
+		<div data-role="page">
+			<div role="main" class="ui-content">
+				<ul data-role="listview" id="list">
+				</ul>
+				<!--<div id="healthwrapper">
+					<div id="healthscroller">
+						<fieldset id="healthType_content">
+						</fieldset>
+					</div>
+				</div>
+				<div class="block_black"></div>
+
+				<div class="arrow_left">
+				</div>
+				<div class="arrow_right">
+				</div>-->
+				<ul data-role="listview" id="lists">
+				</ul>
+				<div id="div"></div>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript">
-		$(function() {
-			window.Android.fortune();
+		var defultItem = "白羊座";
+		$(document).on("pageinit", function() {
+			initData();
+			bindEvent();
+			window.Android.fortune(defultItem);
 		});
+		var initData = function() {
+			$.getJSON("../json/xingzuo.json", function(result) {
+				result.result.list.map(function(item, index) {
+					var item = '<li id="item" item_content="' + item + '"><p>' + item + '</p></li>'
+					$("#list").append(item);
+					if (index == 0) {
+						$("#item").css("background-color", "#0088BB");
+					}
+				});
+			});
+		};
+		var bindEvent = function() {
+			$("#list").on("click", "li", itemclick);
+		};
+		var itemclick = function() {
+			var item = $(this).attr("item_content");
+			window.Android.fortune(item);
+		};
 
 		function MyRefresh(result) {
-			var item;
-			item = "<span id='item-id'>" + JSON.stringify(result) + "</span>";
-			$("#div").append(item);
-		}
+			if($("#lists").length>0){
+				$("#lists").empty();
+			}
+			var item = '<li><a><h4>星座名称:"'+result.name+'"</h4>'+
+			'<p>日期:"'+result.datetime+'"</p>'+
+			'<p>综合指数:"'+result.all+'"</p>'+
+			'<p>幸运色:"'+result.color+'"</p>'+
+			'<p>健康指数:"'+result.health+'"</p>'+
+			'<p>爱情指数:"'+result.love+'"</p>'+
+			'<p>财运指数:"'+result.money+'"</p>'+
+			'<p>幸运数字:"'+result.number+'"</p>'+
+			'<p>速配星座:"'+result.QFriend+'"</p>'+
+			'<span>今日概述:"'+result.summary+'"</span>'+
+			'<p>工作指数:"'+result.work+'"</p>';
+//			item = "<span id='item-id'>" + JSON.stringify(result) + "</span>";
+			$("#lists").append(item);
+		};
+		//		var width = $(document).width();
+		//		var colorArray = ["#FFAE39", "#FFAE39", "#FFAE39", "#FFAE39", "#FFAE39", "#FFAE39"];
+		//		var healthTypeScroll;
+		//		$(document).ready(function() {
+		//			healthTypeScroll = new IScroll("#healthwrapper", {
+		//				scrollX: true,
+		//				scrollY: false,
+		//				useTransform: false,
+		//				tap: true
+		//			});
+		//		});
+		//		$(document).on("tap", "div.arrow_left", function() {
+		//			var allWidth = parseFloat($("#healthscroller").css("width"));
+		//			var left = parseFloat($("#healthscroller").css("left"));
+		//
+		//			if (left >= 0) {
+		//				return
+		//			} else {
+		//				if (left + 90 > 0) {
+		//					healthTypeScroll.scrollTo(0);
+		//				} else {
+		//					healthTypeScroll.scrollTo(left + 90);
+		//				}
+		//
+		//			}
+		//
+		//		});
+		//		$(document).on("tap", "div.arrow_right", function() {
+		//			var allWidth = parseFloat($("#healthscroller").css("width"));
+		//			var left = parseFloat($("#healthscroller").css("left"));
+		//			if (width - left >= allWidth) {
+		//				return;
+		//			} else {
+		//				if (left - width + allWidth < 90) {
+		//					healthTypeScroll.scrollTo(-(allWidth - width + 30));
+		//				} else {
+		//					healthTypeScroll.scrollTo(left - 90);
+		//				}
+		//			}
+		//		});
+		//		$(function() {
+		//			//			window.Android.fortune();
+		//			GetData();
+		//		});
+		//
+		//
+		//		function GetData() {
+		//			var detail = ["asfasdf", "asfasdf", "asfasdf", "asfasdf", "asfasdf", "asfasdf"];
+		//			if (detail != null) {
+		//				if (detail.length > 0) {
+		//					for (var i = 0; i < detail.length; i++) {
+		//						var questionType = "数据有误";
+		//						var color = "";
+		//						var index = i % 6;
+		//						//						if ("QuestionType" in detail[i]) {
+		//						//							questionType = detail[i].QuestionType == null || detail[i].QuestionType == "" ? "数据有误" : detail[i].QuestionType;
+		//						//							if (questionType.length > 4) {
+		//						//								questionType = questionType.substr(0, 4);
+		//						//							}
+		//						//						} else {
+		//						//							questionType = "数据有误";
+		//						//						}
+		//
+		//						var healthDiv = "<div style='background-color:" + colorArray[index] + "' data-name='" + detail[i].QuestionType + "'>" + questionType + "</div>";
+		//						$("#healthType_content").append(healthDiv);
+		//					}
+		//					if ((80 + detail.length * 70 + (detail.length - 1) * 20) < width) {
+		//
+		//						$("#healthscroller").css("width", "100%");
+		//					} else {
+		//
+		//						$("#healthscroller").css("width", (detail.length * 90 + 40) + "px");
+		//					}
+		//					healthTypeScroll.refresh();
+		//				}
+		//			} else {
+		//				showMessageBox("读取健康类别失败哦～");
+		//			}
+		//		};
 	</script>
 
 </html>

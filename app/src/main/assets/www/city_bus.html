@@ -28,9 +28,8 @@
 			});
 			function MyRefresh(result){
 					result.result.list.map(function(content) {
-						//							alert(JSON.stringify(content));
 						var item;
-						item = "<input id='item-id'><a><h6 class='content'>"+ JSON.stringify(data) + "</h6></a></li>";
+						item = "<input id='item-id'><a><h6 class='content'>"+ JSON.stringify(content) + "</h6></a></li>";
 						$("#info").append(item);
 					});
 			}

@@ -92,6 +92,6 @@ public class HotFragment extends Fragment {
     };
     @JavascriptInterface
     public void detial(String url) {
-        startActivity(new Intent(getActivity(), UrlActivity.class).putExtra("content", url));
+        startActivity(new Intent(getActivity(), UrlActivity.class).putExtra("content", url).putExtra("type","0"));
     }
 }

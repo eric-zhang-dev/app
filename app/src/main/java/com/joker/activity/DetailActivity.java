@@ -154,9 +154,9 @@ public class DetailActivity extends AppCompatActivity {
         httpUrl = "http://op.juhe.cn/onebox/weather/query?cityname=%E4%B8%8A%E6%B5%B7&key=0d61588a2680c7c7ef5efff5bf0857ea";
         new Thread(load).start();
     }
-    @android.webkit.JavascriptInterface
-    public void searchStock() {
-        httpUrl = "http://web.juhe.cn:8080/finance/stock/shall?key=3a77e340a8e99308333cbf2d9f6d1105&page=1";
+    @JavascriptInterface
+    public void searchStock(String page) {
+        httpUrl = "http://web.juhe.cn:8080/finance/stock/shall?key=3a77e340a8e99308333cbf2d9f6d1105&page="+page+"type=4";
         new Thread(load).start();
     }
     @android.webkit.JavascriptInterface
@@ -175,8 +175,8 @@ public class DetailActivity extends AppCompatActivity {
         new Thread(load).start();
     }
     @android.webkit.JavascriptInterface
-    public void fortune() {
-        httpUrl = "http://web.juhe.cn:8080/constellation/getAll?consName=%E7%8B%AE%E5%AD%90%E5%BA%A7&type=today&key=b3926f342953ede20dd6756f5e660cb1";
+    public void fortune(String item) {
+        httpUrl = "http://web.juhe.cn:8080/constellation/getAll?consName="+item+"&type=today&key=b3926f342953ede20dd6756f5e660cb1";
         new Thread(load).start();
     }
     @android.webkit.JavascriptInterface
